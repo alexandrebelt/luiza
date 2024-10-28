@@ -17,6 +17,7 @@ export default defineComponent({
     // eslint-disable-next-line
     const locomotiveScroll = new LocomotiveScroll();
 
+
   }
 
 })
@@ -39,11 +40,11 @@ export default defineComponent({
   --cinza-escuro: #3D3D3D;
 
   //Font-sizes
-  --h1: 152px;
+  --h1: clamp(42px, 13vw, 152px);
   --h2: 128px;
-  --h3: 96px;
-  --h4: 64px;
-  --h5: 48px;
+  --h3: clamp(35px, 10vw, 96px);
+  --h4: clamp(30px, 5vw, 64px);
+  --h5: clamp(28px, 4vw, 48px);
   --h6: 20px;
 
   --ivy: "ivyjournal", sans-serif;
@@ -72,8 +73,10 @@ section {
 }
 .limit{
   padding: 0 50px;
-  max-width: 2000px;
+  max-width: 1300px;
   margin: 0 auto;
+  width: 100%;
+
 }
 .center-content {
   display: flex;
@@ -95,8 +98,9 @@ h5 {
 
 p {
   font-family: var(--neue);
-  font-size: 20px;
+  font-size: clamp(13px, 2.5vw, 20px);
   line-height: 1.5em;
+  font-weight: 500;
 }
 
 a {
@@ -137,7 +141,7 @@ h6 {
 
 
 .heading-uppercase {
-  font-size: 18px;
+  font-size: clamp(13px,4vw,18px);
   text-transform: uppercase;
   font-family: var(--comm);
   font-weight: 600;

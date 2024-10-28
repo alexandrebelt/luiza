@@ -130,8 +130,7 @@ export default {
         pin: true,
         animation: tween,
         scrub: 1,
-        invalidateOnRefresh: true,
-        markers: true
+        invalidateOnRefresh: true
       })
 
       gsap.set('#estudio-servicos h5', {

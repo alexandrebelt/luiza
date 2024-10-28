@@ -1,40 +1,43 @@
 <template>
     <section id="contact">
-        <div class="contact-wrap limit">
-            <div v-if="isSended" id="form">
-                <div class="form-col">
-                    <h4><span>Vamos criar um</span><br>
-                        projeto <i>incrível?</i></h4>
+        <div class="limit">
+            <div class="contact-wrap">
+                <div v-if="isSended" id="form">
+                    <div class="form-col">
+                        <h4><span>Vamos criar um</span><br>
+                            projeto <i>incrível?</i></h4>
+                    </div>
+                    <div class="form-col">
+                        <form class="form" @submit.prevent="sendEmail">
+                            <label class="heading-uppercase">Nome</label>
+                            <input class="heading-uppercase" type="text" id="name" name="name">
+                            <label class="heading-uppercase">empresa</label>
+                            <input class="heading-uppercase" type="text" id="company-name" name="company-name">
+                            <label class="heading-uppercase">E-mail</label>
+                            <input class="heading-uppercase" type="mail" id="mail" name="mail">
+                            <label class="heading-uppercase">whatsapp</label>
+                            <input class="heading-uppercase" type="tel" id="whatsapp" name="whatsapp">
+                            <label class="heading-uppercase">Como podemos te ajudar?</label>
+                            <textarea class="heading-uppercase" id="message" name="message"
+                                placeholder="fale mais sobre sua empresa e o que ela precisa, por favor!"></textarea>
+                            <button class="heading-uppercase" @click.prevent="sendEmail">
+                                Enviar
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-col">
-                    <form class="form" @submit.prevent="sendEmail">
-                        <label class="heading-uppercase">Nome</label>
-                        <input class="heading-uppercase" type="text" id="name" name="name">
-                        <label class="heading-uppercase">empresa</label>
-                        <input class="heading-uppercase" type="text" id="company-name" name="company-name">
-                        <label class="heading-uppercase">E-mail</label>
-                        <input class="heading-uppercase" type="mail" id="mail" name="mail">
-                        <label class="heading-uppercase">whatsapp</label>
-                        <input class="heading-uppercase" type="tel" id="whatsapp" name="whatsapp">
-                        <label class="heading-uppercase">Como podemos te ajudar?</label>
-                        <textarea class="heading-uppercase" id="message" name="message"
-                            placeholder="fale mais sobre sua empresa e o que ela precisa, por favor!"></textarea>
-                        <button class="heading-uppercase" @click.prevent="sendEmail">
-                            Enviar
-                        </button>
-                    </form>
+                <div id="agradecimento" v-else>
+                    <h2>Obrigada!</h2>
+                    <p>Recebemos o seu pedido de orçamento e logo logo entraremos em contato para conversarmos com calma
+                        sobre o
+                        seu projeto!</p>
                 </div>
-            </div>
-            <div id="agradecimento" v-else>
-                <h2>Obrigada!</h2>
-                <p>Recebemos o seu pedido de orçamento e logo logo entraremos em contato para conversarmos com calma
-                    sobre o
-                    seu projeto!</p>
             </div>
         </div>
     </section>
 </template>
 <script>
+import gsap from 'gsap'
 export default {
     data() {
         return {
@@ -42,7 +45,7 @@ export default {
         }
     },
     mounted() {
-        
+        gsap.killAll;
     },
     methods: {
         sendEmail() {
@@ -64,13 +67,16 @@ export default {
 
     #form {
         display: flex;
-        padding-bottom: 20vh;
+        padding-bottom: 15vh;
+        width: 100%;
+
 
         .form-col {
-            flex-basis: 50%;
+            //flex-basis: 50%;
             display: flex;
             flex-direction: column;
             justify-content: end;
+            flex-basis: 50%;
 
             h4 {
                 color: var(--preto)
@@ -79,7 +85,7 @@ export default {
             .form {
                 display: flex;
                 flex-direction: column;
-                columns: 2;
+                width: 100%;
 
                 label {
                     margin-top: 20px;
@@ -91,8 +97,8 @@ export default {
                     box-shadow: none;
                     border: none;
                     color: var(--marrom-escuro);
-                    cursor: pointer;
                     margin-left: auto;
+                    cursor: pointer;
                     margin-top: 40px;
                 }
 
@@ -105,7 +111,8 @@ export default {
                     border-bottom: 2px solid var(--marrom-escuro);
                     color: var(--marrom-escuro) !important;
                     caret-color: var(--marrom-escuro);
-                    font-size: 16px !important;
+                    font-size: 16px;
+
 
                     &:focus,
                     :focus-visible {
@@ -113,9 +120,14 @@ export default {
                     }
                 }
 
+                textarea {
+                    min-height: 100px;
+                }
+
             }
         }
-        .form-col:nth-of-type(2){
+
+        .form-col:nth-of-type(2) {
             display: flex;
             align-items: end;
         }
@@ -131,6 +143,39 @@ export default {
 
         p {
             padding-top: 30px;
+        }
+    }
+}
+
+@media(max-width:700px) {
+    #contact {
+        justify-content: center;
+
+        #form {
+            flex-direction: column;
+            padding-bottom: initial;
+
+            .form-col {
+
+                h4 {
+                    margin-bottom: 30px;
+                }
+
+                label {
+                    margin-top: 5px !important;
+                    font-size: 13px;
+                }
+
+                button {
+                    font-size: 13px;
+                }
+
+                input,
+                textarea {
+                    padding: 5px !important;
+                    font-size: 13px !important;
+                }
+            }
         }
     }
 }

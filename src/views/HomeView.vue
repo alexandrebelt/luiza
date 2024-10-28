@@ -159,8 +159,7 @@ export default defineComponent({
           start: "center center",
           end: "bottom top",
           scrub: 1,
-          pin: true,
-          markers: true
+          pin: true
         }
       })
       tl.to('.estudio-content h6, .estudio-content p', {
@@ -170,8 +169,7 @@ export default defineComponent({
           trigger:"#estudio-session",
           start: "center center",
           end: "bottom top",
-          scrub: 1,
-          markers: true
+          scrub: 1
         }
       })
 

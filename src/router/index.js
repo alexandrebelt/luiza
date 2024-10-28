@@ -1,6 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, onBeforeRouteLeave } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ContactView from '@/views/ContactView.vue'
+import locomotiveScroll from 'locomotive-scroll'
 
 const routes = [
   {
@@ -28,4 +29,7 @@ const router = createRouter({
   routes
 })
 
+onBeforeRouteLeave(()=>{
+  locomotiveScroll.killAll()
+})
 export default router
