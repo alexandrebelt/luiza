@@ -1,7 +1,9 @@
 <template>
   <SideMenu />
 
-  <router-view />
+  <Transition name="fade" mode="out-in">
+    <router-view />
+  </Transition>
 </template>
 
 <script>
@@ -13,7 +15,7 @@ export default defineComponent({
   components: {
     SideMenu
   },
-  mounted(){
+  mounted() {
     // eslint-disable-next-line
     const locomotiveScroll = new LocomotiveScroll();
 
@@ -52,9 +54,18 @@ export default defineComponent({
   --comm: "commuters-sans", sans-serif;
   --eb: "eb-garamond", serif;
 }
-html, body{
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
   overflow-x: hidden;
 }
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,16 +79,24 @@ body {
 section {
   height: 100vh;
 }
-.container{
-  padding: 120px 30px;
-}
-.limit{
-  padding: 0 50px;
-  max-width: 1300px;
-  margin: 0 auto;
-  width: 100%;
+
+.container {
+  padding: 120px 0;
 
 }
+
+.container-maior {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.limit {
+  padding: 0 50px;
+  max-width: 1300px;
+  width: 100%;
+}
+
 .center-content {
   display: flex;
   justify-content: center;
@@ -91,7 +110,8 @@ h5 {
   font-family: var(--ivy);
   font-weight: 200;
   margin: 0;
-  span{
+
+  span {
     font-family: var(--neue)
   }
 }
@@ -141,7 +161,7 @@ h6 {
 
 
 .heading-uppercase {
-  font-size: clamp(13px,4vw,18px);
+  font-size: clamp(13px, 4vw, 18px);
   text-transform: uppercase;
   font-family: var(--comm);
   font-weight: 600;
@@ -151,4 +171,13 @@ h6 {
 }
 
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

@@ -1,36 +1,39 @@
 <template>
     <section id="contact">
-        <div class="limit">
-            <div class="contact-wrap">
-                <div v-if="isSended" id="form">
-                    <div class="form-col">
-                        <h4><span>Vamos criar um</span><br>
-                            projeto <i>incrível?</i></h4>
+        <div class="container-maior">
+            <div class="limit">
+                <div class="contact-wrap">
+                    <div v-if="isSended" id="form">
+                        <div class="form-col">
+                            <h4><span>Vamos criar um</span><br>
+                                projeto <i>incrível?</i></h4>
+                        </div>
+                        <div class="form-col">
+                            <form class="form" @submit.prevent="sendEmail">
+                                <label class="heading-uppercase">Nome</label>
+                                <input class="heading-uppercase" type="text" id="name" name="name">
+                                <label class="heading-uppercase">empresa</label>
+                                <input class="heading-uppercase" type="text" id="company-name" name="company-name">
+                                <label class="heading-uppercase">E-mail</label>
+                                <input class="heading-uppercase" type="mail" id="mail" name="mail">
+                                <label class="heading-uppercase">whatsapp</label>
+                                <input class="heading-uppercase" type="tel" id="whatsapp" name="whatsapp">
+                                <label class="heading-uppercase">Como podemos te ajudar?</label>
+                                <textarea class="heading-uppercase" id="message" name="message"
+                                    placeholder="fale mais sobre sua empresa e o que ela precisa, por favor!"></textarea>
+                                <button class="heading-uppercase" @click.prevent="sendEmail">
+                                    Enviar
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="form-col">
-                        <form class="form" @submit.prevent="sendEmail">
-                            <label class="heading-uppercase">Nome</label>
-                            <input class="heading-uppercase" type="text" id="name" name="name">
-                            <label class="heading-uppercase">empresa</label>
-                            <input class="heading-uppercase" type="text" id="company-name" name="company-name">
-                            <label class="heading-uppercase">E-mail</label>
-                            <input class="heading-uppercase" type="mail" id="mail" name="mail">
-                            <label class="heading-uppercase">whatsapp</label>
-                            <input class="heading-uppercase" type="tel" id="whatsapp" name="whatsapp">
-                            <label class="heading-uppercase">Como podemos te ajudar?</label>
-                            <textarea class="heading-uppercase" id="message" name="message"
-                                placeholder="fale mais sobre sua empresa e o que ela precisa, por favor!"></textarea>
-                            <button class="heading-uppercase" @click.prevent="sendEmail">
-                                Enviar
-                            </button>
-                        </form>
+                    <div id="agradecimento" v-else>
+                        <h2>Obrigada!</h2>
+                        <p>Recebemos o seu pedido de orçamento e logo logo entraremos em contato para conversarmos com
+                            calma
+                            sobre o
+                            seu projeto!</p>
                     </div>
-                </div>
-                <div id="agradecimento" v-else>
-                    <h2>Obrigada!</h2>
-                    <p>Recebemos o seu pedido de orçamento e logo logo entraremos em contato para conversarmos com calma
-                        sobre o
-                        seu projeto!</p>
                 </div>
             </div>
         </div>

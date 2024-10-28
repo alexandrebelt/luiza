@@ -84,20 +84,20 @@ export default defineComponent({
   },
   mounted() {
     const tl = gsap.timeline();
+    gsap.set('.intro-banner-content h4, .intro-banner-content p', {
+      opacity: 0,
+      filter: "blur(30px)"
+    })
     setTimeout(() => {
       let projs = document.querySelectorAll('.project');
 
-      gsap.set('.intro-banner-content h4, .intro-banner-content p', {
-        opacity: 0,
-        filter: "blur(30px)"
-      })
 
       gsap.set('.estudio-content h6, .estudio-content p', {
         opacity: 0,
       })
       gsap.set('.estudio-content h4', {
         opacity: 0,
-        scale: 1.5
+        scale: 2
       })
 
 
@@ -138,7 +138,7 @@ export default defineComponent({
 
 
         gsap.to(proj.querySelector('.blur'), {
-          x: -1500,
+          x: "-100vw",
           scrollTrigger: {
             trigger: proj,
             start: 'center center',
@@ -288,7 +288,7 @@ export default defineComponent({
     p {
       max-width: 784px;
       margin: 0 auto;
-      font-size: 20px;
+      font-size: clamp(13px, 2.5vw, 20px);
     }
 
     .estudio-content {

@@ -1,8 +1,10 @@
-import { createRouter, createWebHistory, onBeforeRouteLeave } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ContactView from '@/views/ContactView.vue'
-import locomotiveScroll from 'locomotive-scroll'
-
+import gsap from 'gsap'
+import ScrollToPlugin from 'gsap/ScrollToPlugin'
+import { onBeforeMount } from 'vue'
+gsap.registerPlugin(ScrollToPlugin)
 const routes = [
   {
     path: '/',
@@ -26,10 +28,15 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(){
+    window.scrollTo(0, 0)
+  }
 })
 
-onBeforeRouteLeave(()=>{
-  locomotiveScroll.killAll()
+onBeforeMount(() => {
+  gsap.to(window, {
+    scrollTo: 0,
+  })
 })
 export default router

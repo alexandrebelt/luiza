@@ -77,9 +77,9 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   mounted() {
     let tl = gsap.timeline()
+    gsap.set("#estudio-intro h5", {opacity: 0, filter: "blur(30px)"})
+    gsap.set("#destaque", {opacity: 0, x:100})
     setTimeout(() => {
-      gsap.set("#estudio-intro h5", {opacity: 0, filter: "blur(30px)"})
-      gsap.set("#destaque", {opacity: 0, x:100})
       tl.to("#estudio-intro h5", {opacity: 1, duration: 1, delay:0.5, filter: "blur(0px)"})
       tl.to("#destaque", {opacity:1, x:0,duration: 1, ease: "power4.out"})
 
@@ -144,7 +144,7 @@ export default {
         scrollTrigger: {
           trigger:'#estudio-servicos',
           start: 'top, center',
-          end: 'center 45%',
+          end: 'center center',
           scrub: 2
         }
       })
