@@ -3,36 +3,32 @@
         <div class="container-maior">
             <div class="limit">
                 <div class="contact-wrap">
-                    <div v-if="isSended" id="form">
-                        <div class="form-col">
-                            <h4><span>Vamos criar um</span><br>
-                                projeto <i>incrível?</i></h4>
+                    <div v-if="!isFormSended" id="form">
+                        <div class="form-col langs">
+                            <div v-html="$t('contact.heading')"></div>
                         </div>
-                        <div class="form-col">
+                        <div class="form-col langs">
                             <form class="form" @submit.prevent="sendEmail">
-                                <label class="heading-uppercase">Nome</label>
-                                <input class="heading-uppercase" type="text" id="name" name="name">
-                                <label class="heading-uppercase">empresa</label>
-                                <input class="heading-uppercase" type="text" id="company-name" name="company-name">
-                                <label class="heading-uppercase">E-mail</label>
-                                <input class="heading-uppercase" type="mail" id="mail" name="mail">
-                                <label class="heading-uppercase">whatsapp</label>
-                                <input class="heading-uppercase" type="tel" id="whatsapp" name="whatsapp">
-                                <label class="heading-uppercase">Como podemos te ajudar?</label>
-                                <textarea class="heading-uppercase" id="message" name="message"
-                                    placeholder="fale mais sobre sua empresa e o que ela precisa, por favor!"></textarea>
+                                <label class="heading-uppercase">{{$t('contact.input1')}}</label>
+                                <input class="" type="text" id="name" name="name">
+                                <label class="heading-uppercase">{{$t('contact.input2')}}</label>
+                                <input class="" type="text" id="company-name" name="company-name">
+                                <label class="heading-uppercase">{{ $t('contact.input3') }}</label>
+                                <input class="" type="mail" id="mail" name="mail">
+                                <label class="heading-uppercase">{{$t('contact.input4')}}</label>
+                                <input class="whatsapp" type="tel" id="whatsapp" name="whatsapp">
+                                <label class="heading-uppercase">{{$t('contact.input5')}}</label>
+                                <textarea class="" id="message" name="message"
+                                    :placeholder="$t('contact.input5PH')"></textarea>
                                 <button class="heading-uppercase" @click.prevent="sendEmail">
-                                    Enviar
+                                    {{$t('contact.send')}}
                                 </button>
                             </form>
                         </div>
                     </div>
-                    <div id="agradecimento" v-else>
-                        <h2>Obrigada!</h2>
-                        <p>Recebemos o seu pedido de orçamento e logo logo entraremos em contato para conversarmos com
-                            calma
-                            sobre o
-                            seu projeto!</p>
+                    <div class="langs" id="agradecimento" v-else>
+                        <h2>{{$t('contact.thankyou')}}</h2>
+                        <p>{{$t('contact.thankyouSub')}}</p>
                     </div>
                 </div>
             </div>
@@ -40,20 +36,57 @@
     </section>
 </template>
 <script>
-import gsap from 'gsap'
+import emailjs from '@emailjs/browser';
+import gsap from 'gsap';
+
 export default {
     data() {
         return {
-            isSended: true
+            isFormSended: false
         }
     },
     mounted() {
-        gsap.killAll;
+        let whats = document.querySelector(".whatsapp");
+
+        if (whats) {
+            document.querySelector('.whatsapp').addEventListener('input', function (e) {
+                var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+            });
+        }
     },
     methods: {
         sendEmail() {
-            console.log('enviado');
-            this.isSended = false
+            emailjs
+                .sendForm('Service', 'Template', this.$refs.form, {
+                    publicKey: 'Public',
+                })
+                .then(
+                    () => {
+                        if (!this.isFormSended) {
+                            window.scrollTo(0, 0);
+
+                            setTimeout(() => {
+                                setTimeout(() => {
+                                    this.isFormSended = true
+
+                                }, 500);
+                                const formulario = document.querySelector("#orcamento")
+                                gsap.from(formulario, {
+                                    opacity: 1,
+                                    height: "100vh"
+                                })
+                                gsap.to(formulario, {
+                                    opacity: 0,
+                                    height: "0px"
+                                })
+                            }, 1500);
+                        }
+                    },
+                    (error) => {
+                        console.log('FAILED...', error.text);
+                    },
+                );
         }
     }
 }
@@ -70,7 +103,7 @@ export default {
 
     #form {
         display: flex;
-        padding-bottom: 15vh;
+        padding-bottom: clamp(30px, 5vw, 100px);
         width: 100%;
 
 
@@ -82,7 +115,8 @@ export default {
             flex-basis: 50%;
 
             h4 {
-                color: var(--preto)
+                font-size: clamp(35px, 5.5vw, 64px);
+                color: var(--preto);
             }
 
             .form {
@@ -92,6 +126,7 @@ export default {
 
                 label {
                     margin-top: 20px;
+                    font-size: clamp(13px, 2vw, 20px);
                 }
 
                 button {
@@ -108,13 +143,16 @@ export default {
                 input,
                 textarea {
                     padding: 10px 0;
+                    font-family: var(--neue);
+                    font-weight: 500;
                     border: 0;
                     resize: none;
                     background-color: transparent;
                     border-bottom: 2px solid var(--marrom-escuro);
                     color: var(--marrom-escuro) !important;
                     caret-color: var(--marrom-escuro);
-                    font-size: 16px;
+                    font-size: clamp(13px, 2vw, 20px);
+                    letter-spacing: 0.05em;
 
 
                     &:focus,

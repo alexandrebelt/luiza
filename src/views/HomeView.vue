@@ -1,66 +1,46 @@
 <template>
   <div id="home">
-    <section id="intro-banner">
+    <section id="intro-banner" class="langs">
       <div class="intro-banner-content">
-        <h4>Design para <i>marcas</i> incríveis se
-          conectarem com pessoas incríveis.</h4>
-        <p>
-          Somos um estúdio de design apaixonados pelo poder de transformar vidas e marcas através de soluções modernas,
-          minimalistas e cheias de significado.
-        </p>
+        <div v-html="$t('home.section1.heading1')"></div>
+        <p>{{ $t('home.section1.sub1') }}</p>
       </div>
       <div class="intro-banner-content">
         <p>
-          Identidade Visual + Direção de Arte + Web Design e Desenvolvimento
+          {{ $t('home.section1.sub2') }}
         </p>
       </div>
     </section>
+
     <section id="projects">
-      <div class="project">
+      <div class="project" v-for="(proj, index) in projs" v-bind:key="index">
         <div class="blur">
-
         </div>
-        <img src="/images/project1.jpeg">
+        <img :src="proj.image">
         <div class="text-content">
-          <h1>Project</h1>
-          <h5 class="heading-uppercase"> identidade visual + branding</h5>
+          <h1>{{ proj.title }}</h1>
+          <h5 class="heading-uppercase"> {{ proj.type }}</h5>
         </div>
       </div>
-      <div class="project">
-        <div class="blur">
 
-        </div>
-        <img src="/images/project1.jpeg">
-        <div class="text-content">
-          <h1>Project</h1>
-          <h5 class="heading-uppercase"> identidade visual + branding</h5>
-        </div>
-      </div>
     </section>
     <section id="estudio-session" class="container">
       <div class="estudio-wrap">
-        <div class="estudio-content">
+        <div class="estudio-content langs">
           <h6>
-            Estúdio
+            {{ $t('home.section2.heading1') }}
           </h6>
           <h6 class="heading-uppercase">
-            The founder
+            {{ $t('home.section2.sub1') }}
           </h6>
         </div>
 
-        <div class="estudio-content">
+        <div class="estudio-content langs">
           <h4>
             Luiza <i>Bola</i>
           </h4>
           <p>
-            Olá, eu sou a Luiza! Apaixonada por arte e comunicação, acredito no design não só como uma ferramenta
-            essencial
-            para as marcas, mas também como agente transformador, com potencial de contar histórias que conectam pessoas
-            através das mais significativas mensagens. Com mais de nove anos de experiência no mercado, fundei o Luiza
-            Bola
-            Estúdio para dar vida ao meu sonho de, através do design minimalista, moderno e com propósito, ajudar cada
-            vez
-            mais marcas a expressarem visualmente sua história.
+            {{ $t('home.section2.text') }}
           </p>
         </div>
       </div>
@@ -76,11 +56,24 @@ import FooterSection from '@/components/FooterSection.vue';
 import { defineComponent } from 'vue'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import axios from 'axios';
 
 gsap.registerPlugin(ScrollTrigger);
 export default defineComponent({
   components: {
     FooterSection
+  },
+  data() {
+    return {
+      projs: []
+    }
+  },
+  beforeMount() {
+    axios.get('projects.json').then(res => {
+      this.projs = res.data.home
+    }).catch(error => {
+      console.log(error)
+    })
   },
   mounted() {
     const tl = gsap.timeline();
@@ -89,6 +82,7 @@ export default defineComponent({
       filter: "blur(30px)"
     })
     setTimeout(() => {
+
       let projs = document.querySelectorAll('.project');
 
 
@@ -98,6 +92,9 @@ export default defineComponent({
       gsap.set('.estudio-content h4', {
         opacity: 0,
         scale: 2
+      })
+      gsap.set('.intro-banner-content', {
+        filter: 'blur(0)',
       })
 
 
@@ -114,6 +111,15 @@ export default defineComponent({
       })
 
 
+      gsap.to('.intro-banner-content', {
+        filter: 'blur(100px)',
+        scrollTrigger: {
+          trigger: '#intro-banner',
+          start: 'center 20%',
+          end: 'bottom top',
+          scrub: 2
+        }
+      })
 
 
       projs.forEach((proj) => {
@@ -155,7 +161,7 @@ export default defineComponent({
         opacity: 1,
         scale: 1,
         scrollTrigger: {
-          trigger:"#estudio-session",
+          trigger: "#estudio-session",
           start: "center center",
           end: "bottom top",
           scrub: 1,
@@ -166,7 +172,7 @@ export default defineComponent({
         opacity: 1,
         scale: 1,
         scrollTrigger: {
-          trigger:"#estudio-session",
+          trigger: "#estudio-session",
           start: "center center",
           end: "bottom top",
           scrub: 1
@@ -228,7 +234,7 @@ export default defineComponent({
 
     h4 {
       margin-bottom: 30px;
-      max-width: 1120px;
+      max-width: 1100px;
     }
   }
 
@@ -256,6 +262,7 @@ export default defineComponent({
         margin-bottom: 20vh;
         position: relative;
         z-index: 1;
+        mix-blend-mode: difference;
       }
 
       img {

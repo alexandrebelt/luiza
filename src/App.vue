@@ -1,25 +1,69 @@
 <template>
   <SideMenu />
+  <div class="language">
+    <a @click="changeLanguage('PT')">pt</a>
+    <br>
+    <a @click="changeLanguage('EN')">en</a>
+  </div>
+  <div class="loading-content" v-if="isLoading">
+    <LoadingView />
+  </div>
 
-  <Transition name="fade" mode="out-in">
+
+  <Transition name="fade" mode="out-in" v-else>
     <router-view />
   </Transition>
+
 </template>
 
 <script>
 import LocomotiveScroll from 'locomotive-scroll';
 import SideMenu from './components/SideMenu';
 import { defineComponent } from 'vue'
+import LoadingView from './components/loading/LoadingStart.vue'
+import gsap from 'gsap';
+
 
 export default defineComponent({
-  components: {
-    SideMenu
+  data() {
+    return {
+      isLoading: true
+    }
   },
+  components: {
+    SideMenu,
+    LoadingView,
+  },
+  methods: {
+    changeLanguage(locale) {
+      if (this.$i18n.locale !== locale) {
+        gsap.to('.langs', { duration: 1, filter: 'blur(40px)', ease: 'power4.in' })
+        setTimeout(() => {
+          this.$i18n.locale = locale;
+          document.cookie = `locale=${locale}; path=/`
+          gsap.to('.langs', { duration: 1, filter: 'blur(0px)', ease: 'power4.out' })
+        }, 1000)
+      }
+    }
+
+  },
+  
   mounted() {
     // eslint-disable-next-line
     const locomotiveScroll = new LocomotiveScroll();
 
+    window.onload = () => {
+      setTimeout(() => {
 
+        const loading = document.querySelector('.loading-content');
+        loading.classList.add('slide-up')
+
+      }, 200);
+      setTimeout(() => {
+        this.isLoading = false
+
+      }, 200);
+    }
   }
 
 })
@@ -45,7 +89,7 @@ export default defineComponent({
   --h1: clamp(42px, 13vw, 152px);
   --h2: 128px;
   --h3: clamp(35px, 10vw, 96px);
-  --h4: clamp(30px, 5vw, 64px);
+  --h4: clamp(30px, 5.7vw, 64px);
   --h5: clamp(28px, 4vw, 48px);
   --h6: 20px;
 
@@ -70,6 +114,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--branco)
+}
+
+.loading-content {
+  z-index: 9999;
+  transition: var(--transition);
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translatey(-150vw);
 }
 
 body {
@@ -130,6 +186,7 @@ a {
 
 h1 {
   font-size: var(--h1);
+  font-style: italic;
 }
 
 h2 {
@@ -179,5 +236,12 @@ h6 {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.language{
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
 }
 </style>

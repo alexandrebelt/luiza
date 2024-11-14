@@ -1,0 +1,53 @@
+{
+    "menu": {
+        "home": "Inicio",
+        "studio": "Estúdio",
+        "projects": "Projetos",
+        "contact": "Contato"
+    },
+    "home": {
+        "section1": {
+            "heading1": "<h4>Design para <i>marcas</i> incríveis se conectarem com pessoas incríveis.</h4>",
+            "sub1": "Somos um estúdio de design apaixonados pelo poder de transformar vidas e marcas através de soluções modernas, minimalistas e cheias de significado.",
+            "sub2": "Identidade Visual + Direção de Arte + Web Design e Desenvolvimento"
+        },
+        "section2": {
+            "heading1": "Estúdio",
+            "sub1": "The founder",
+            "text": "Olá, eu sou a Luiza! Apaixonada por arte e comunicação, acredito no design não só como uma ferramenta essencial para as marcas, mas também como agente transformador, com potencial de contar histórias que conectam pessoas através das mais significativas mensagens. Com mais de nove anos de experiência no mercado, fundei o Luiza Bola Estúdio para dar vida ao meu sonho de, através do design minimalista, moderno e com propósito, ajudar cada vez mais marcas a expressarem visualmente sua história."
+        }
+    },
+    "about": {
+        "section1":{
+            "heading1":"<h5>Combinamos design <span>minimalista</span> e <span>moderno</span> com <i>significado</i>, histórias e <span>essências</span> para criar <i>projetos</i> <span>de marca</span> autênticos <i>e exclusivos</i>. </h5>",
+            "sub1":"<p>5 vezes <strong>destaque internacional</strong> em Design Gráfico</p>"
+        },
+        "section2": {
+            "heading1": "Estúdio",
+            "sub1": "Serviços",
+            "item1":"Identidade <span>visual</span>",
+            "item2":"<i>Branding</i>",
+            "item3":"<span>Website</span>",
+            "item4":"<span>Design</span> <i>À-La-Carte</i>",
+            "item5":"Ilustração"
+        }
+    },
+    "contact": {
+        "heading": "<h4><span>Vamos criar um</span><br> projeto <i>incrível?</i></h4>",
+        "input1": "Nome",
+        "input2": "Empresa",
+        "input3": "E-mail",
+        "input4": "Whatsapp",
+        "input5": "Como podemos te ajudar?",
+        "input5PH": "Fale mais sobre sua empresa e o que ela precisa, por favor!",
+        "send": "Enviar",
+        "thankyou": "Obrigada!",
+        "thankyouSub": "Recebemos o seu pedido de orçamento e logo logo entraremos em contato para conversarmos com calma sobre o seu projeto!",
+        "ops": "<h3><span>Ops! </span>Algo aconteceu, tente novamente mais tarde :(</h3>",
+        "error": "Por favor, tente novamente com um formulário válido."
+    },
+    "footer": {
+        "heading": "Vamos criar um <span>projeto <i>incrível</i>?</span>",
+        "sub1": "Solicite um orçamento"
+    }
+}

@@ -6,16 +6,16 @@
             </div>
             <div class="menu-content">
                 <router-link to="/">
-                    <h4 class="link-menu">Home</h4>
+                    <h4 class="link-menu">{{$t('menu.home')}}</h4>
                 </router-link>
                 <router-link to="/about">
-                    <h4 class="link-menu">Estúdio</h4>
+                    <h4 class="link-menu">{{$t('menu.studio')}}</h4>
                 </router-link>
-                <router-link to="/about">
-                    <h4 class="link-menu">Projetos</h4>
+                <router-link :to="{ path: '/', hash: '#projects' }">
+                    <h4 class="link-menu">{{$t('menu.projects')}}</h4>
                 </router-link>
                 <router-link to="/contact">
-                    <h4 class="link-menu">Contato</h4>
+                    <h4 class="link-menu">{{$t('menu.contact')}}</h4>
                 </router-link>
             </div>
         </div>
@@ -23,12 +23,61 @@
 </template>
 <script>
 import $ from 'jquery'
+import gsap from 'gsap';
+
 export default {
+
+    data() {
+        return {
+            hover: false,
+            tween: null
+        }
+    },
+    methods: {
+
+        checkHover() {
+            if (this.hover) {
+                this.tween.restart()
+            }
+        },
+
+        hoverOn() {
+            if (document.querySelector('.menu-content').classList.contains('active-menu')) {
+                this.hover = false
+                return
+            }
+            this.hover = true
+            this.tween.play()
+            console.log(this.tween.progress())
+            if (this.tween.progress() == 0) {
+                this.tween.restart() //not sure why play() doesn't work when progress() == 0
+            }
+        },
+
+        hoverOff() {
+            this.hover = false
+        }
+    },
     mounted() {
 
         $(".btn-menu, .link-menu").click(() => {
-            document.querySelector('.menu-content').classList.toggle('active-menu')
-            document.querySelector('.btn-menu').classList.toggle('active-btn')
+            this.hover = false
+            document.querySelector('.menu-content').classList.toggle('active-menu');
+            document.querySelector('.btn-menu').classList.toggle('active-btn');
+
+        });
+
+        document.querySelector(".btn-menu").addEventListener("mouseenter", this.hoverOn);
+        document.querySelector(".btn-menu").addEventListener("mouseleave", this.hoverOff);
+
+        this.tween = gsap.to(".btn-menu span", {
+            duration: 0.3,
+            rotate: -15,
+            repeat: 1,
+            yoyo: true,
+            ease: "sine.inOut",
+            paused: true,
+            onComplete: this.checkHover
         });
     }
 }
@@ -39,6 +88,7 @@ nav {
     padding: 30px;
     position: fixed;
     z-index: 100;
+    display: contents;
 
     a {
         transition: var(--transition);
@@ -62,17 +112,28 @@ nav {
             position: fixed;
             top: 40px;
             right: 40px;
-            width: 36px;
-            height: 9px;
-            background-color: var(--branco);
             cursor: pointer;
             z-index: 100;
             transition: var(--transition);
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            mix-blend-mode: difference;
 
+            span {
+                width: 36px;
+                height: 9px;
+                background-color: var(--branco);
+                display: flex;
+            }
         }
 
         .btn-menu.active-btn {
             transform: rotate(-30deg) !important;
+            mix-blend-mode: normal;
+        }
+
+        .btn-menu.active-btn span {
             background-color: var(--marrom-claro);
         }
 
@@ -101,6 +162,12 @@ nav {
         .active-menu {
             transform: translateX(0) !important;
             opacity: 1;
+        }
+    }
+    @media(max-width:800px){
+        .btn-menu{
+            top: 20px !important;
+            right: 20px !important;
         }
     }
 }

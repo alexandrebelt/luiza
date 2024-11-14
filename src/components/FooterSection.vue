@@ -4,13 +4,13 @@
 
         </div>
         <div id="cta-block1">
-            <h3>
-                Vamos criar um <span>projeto <i>incrível</i>?</span>
+            <h3 class="langs" v-html="$t('footer.heading')" :style="{ maxWidth: $i18n.locale === 'pt' ? '950px' : '900px' }">
+
             </h3>
             <a href="#">
-                <h6 class="heading-uppercase">
+                <h6 class="heading-uppercase langs">
                     <router-link to="/contact">
-                        Solicite um orçamento
+                        {{ $t('footer.sub1') }}
                     </router-link>
                 </h6>
             </a>
@@ -41,8 +41,11 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
+
     mounted() {
+
         setTimeout(() => {
+
             gsap.set('#cta-block1, #footer', {
                 opacity: 0,
                 filter: "blur(30px)"
@@ -52,14 +55,16 @@ export default {
             gsap.to('#cta-block1, #footer', {
                 opacity: 1,
                 filter: "blur(0px)",
-                delay: 0.5,
                 stagger: 0.5,
                 scrollTrigger: {
                     trigger: "#cta",
-                    toggleActions: "play pause resume reset",
+                    start: "center 80%",
+                    end: "center center",
+                    scrub: 2
+                    //toggleActions: "play pause resume reset",
                 }
             })
-        }, 500);
+        }, 700);
     }
 }
 </script>
@@ -83,7 +88,7 @@ export default {
 
     h3 {
         font-family: var(--neue);
-        max-width: 900px;
+        max-width: 929px;
 
         span {
             font-family: var(--ivy);
@@ -105,6 +110,10 @@ export default {
             gap: 30px;
             padding: 30px;
         }
+    }
+
+    h6 {
+        margin-top: 40px;
     }
 }
 

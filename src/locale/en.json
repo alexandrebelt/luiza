@@ -1,0 +1,53 @@
+{
+    "menu": {
+        "home": "Home",
+        "studio": "Studio",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "home": {
+        "section1": {
+            "heading1": "<h4>Design for  <i>amazing</i> <span>brands</span> to connect with <i>amazing</i> <span>people.</span></h4>",
+            "sub1": "We are a design studio passionate about the power of transforming lives and brands through modern, minimalist, and meaningful solutions.",
+            "sub2": "Visual Identity + Art Direction + Web Design and Development"
+        },
+        "section2": {
+            "heading1": "Studio",
+            "sub1": "The founder",
+            "text": "Hello, I’m Luiza! Passionate about art and communication, I believe design is not just an essential tool for brands, but also a transformative agent with the power to tell stories that connect people through the most meaningful messages. With over nine years of experience in the industry, I founded Luiza Bola Studio to bring my dream to life: helping more and more brands visually express their stories through modern, minimalist, and purposeful design."
+        }
+    },
+    "about": {
+        "section1": {
+            "heading1": "<h5>We combine <span>minimalist</span> and <span>modern</span> design with <i>meaning</i>, stories and <span>essence</span> to create <i>authentic and exclusive</i> <span>brand projects.</span> </h5>",
+            "sub1": "<p>5-time <strong>international recognition</strong> in Graphic Design.</p>"
+        },
+        "section2": {
+            "heading1": "Studio",
+            "sub1": "Services",
+            "item1": "Visual <span>identity</span>",
+            "item2": "<i>Branding</i>",
+            "item3": "<span>Website</span>",
+            "item4": "<span>Design</span> <i>À-La-Carte</i>",
+            "item5": "Illustration"
+        }
+    },
+    "contact": {
+        "heading": "<h4><span>Let's create an</span><br><i>amazing</i> project?</h4>",
+        "input1": "name",
+        "input2": "your brand name",
+        "input3": "E-mail",
+        "input4": "phone",
+        "input5": "how can we help you?",
+        "input5PH": "Tell me more about your company and what it needs, please!",
+        "send": "Send",
+        "thankyou": "Thank you!",
+        "thankyouSub": "We have received your quote request and will get in touch soon to discuss your project in detail!",
+        "ops": "<h3><span>Ops! </span>Something happened, try again later :(</h3>",
+        "error": "Please, try again"
+    },
+    "footer": {
+        "heading": "Let's create an <span><i>amazing</i> project</span> together<span>?</span>",
+        "sub1": "Let's Talk!"
+    }
+}

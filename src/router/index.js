@@ -3,8 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import ContactView from '@/views/ContactView.vue'
 import gsap from 'gsap'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
-import { onBeforeMount } from 'vue'
-gsap.registerPlugin(ScrollToPlugin)
+import ScrollTrigger from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 const routes = [
   {
     path: '/',
@@ -20,6 +20,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
+    path: '/#projects',
+    name: 'projects',
+    component: HomeView
+  },
+  {
     path: '/contact',
     name: 'contact',
     component: ContactView
@@ -29,14 +34,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior(){
+  scrollBehavior(to) {
     window.scrollTo(0, 0)
+    ScrollTrigger.refresh(true);
+
+    if(to.hash){
+      return{
+        el: to.hash,
+        behavior: "smooth"
+      }
+    }
   }
 })
 
-onBeforeMount(() => {
-  gsap.to(window, {
-    scrollTo: 0,
-  })
-})
 export default router

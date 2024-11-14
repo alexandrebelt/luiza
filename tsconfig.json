@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "resolveJsonModule": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -34,7 +35,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/main.js"  ],
+, "src/main.ts"  ],
   "exclude": [
     "node_modules"
   ]

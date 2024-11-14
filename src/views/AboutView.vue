@@ -4,43 +4,23 @@
 <template>
   <div id="estudio">
     <section id="estudio-intro" class="limit">
-      <h5>
-        Combinamos design <span>minimalista</span> e <span>moderno</span> com <i>significado</i>, histórias e
-        <span>essências</span> para criar <i>projetos</i> <span>de marca</span>
-        autênticos <i>e exclusivos</i>.
-      </h5>
+      <div class="langs" v-html="$t('about.section1.heading1')"></div>
+      <a href="https://www.behance.net/luizabola" target="_blank">
       <div id="destaque">
-        <img src="/images/Be.png" alt="behance" />
-        <img src="/images/flag.png" alt="behance" />
-        <p>5 vezes <strong>destaque internacional</strong> em Design Gráfico</p>
-      </div>
+          <img src="/images/Be.png" alt="behance" />
+          <img src="/images/flag.png" alt="behance" />
+          <div class="langs" v-html="$t('about.section1.sub1')"></div>
+        </div>
+      </a>
     </section>
 
     <section id="project-scroll">
       <div class="projects-wrap">
         <div class="projects">
-          <div class="project">
+          <div class="project" v-for="(proj, index) in projs" :key="index">
             <div class="project-content">
-              <div class="project-background"></div>
-              <img class="project-image" src="images/Project-acturo.jpeg">
-            </div>
-          </div>
-          <div class="project">
-            <div class="project-content">
-              <div class="project-background"></div>
-              <img class="project-image" src="images/Project-acturo.jpeg">
-            </div>
-          </div>
-          <div class="project">
-            <div class="project-content">
-              <div class="project-background"></div>
-              <img class="project-image" src="images/Project-acturo.jpeg">
-            </div>
-          </div>
-          <div class="project">
-            <div class="project-content">
-              <div class="project-background"></div>
-              <img class="project-image" src="images/Project-acturo.jpeg">
+              <div class="project-background" :style="{ backgroundImage: `url(${proj.image})` }"></div>
+              <img class="project-image" :src="proj.image">
             </div>
           </div>
         </div>
@@ -48,20 +28,20 @@
     </section>
 
     <section id="estudio-servicos">
-      <div class="estudio-heading">
+      <div class="langs estudio-heading">
         <h6>
-          Estúdio
+          {{ $t('about.section2.heading1') }}
         </h6>
         <h6 class="heading-uppercase">
-          Serviços
+          {{ $t('about.section2.sub1') }}
         </h6>
       </div>
 
-      <h5>Identidade <span>visual</span></h5>
-      <h5><i>Branding</i></h5>
-      <h5><span>Website</span></h5>
-      <h5><span>Design</span> <i>À-La-Carte</i></h5>
-      <h5>Ilustração</h5>
+      <h5 class="langs" v-html="$t('about.section2.item1')"></h5>
+      <h5 class="langs" v-html="$t('about.section2.item2')"></h5>
+      <h5 class="langs" v-html="$t('about.section2.item3')"></h5>
+      <h5 class="langs" v-html="$t('about.section2.item4')"></h5>
+      <h5 class="langs" v-html="$t('about.section2.item5')"></h5>
     </section>
 
     <FooterSection />
@@ -70,18 +50,31 @@
 </template>
 <script>
 import FooterSection from '@/components/FooterSection.vue';
+import axios from 'axios';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
+  data() {
+    return {
+      projs: []
+    }
+  },
+  beforeMount() {
+    axios.get('projects.json').then(res => {
+      this.projs = res.data.studio
+    }).catch(error => {
+      console.log(error)
+    })
+  },
   mounted() {
     let tl = gsap.timeline()
-    gsap.set("#estudio-intro h5", {opacity: 0, filter: "blur(30px)"})
-    gsap.set("#destaque", {opacity: 0, x:100})
+    gsap.set("#estudio-intro h5", { opacity: 0, filter: "blur(30px)" })
+    gsap.set("#destaque", { opacity: 0, x: 100 })
     setTimeout(() => {
-      tl.to("#estudio-intro h5", {opacity: 1, duration: 1, delay:0.5, filter: "blur(0px)"})
-      tl.to("#destaque", {opacity:1, x:0,duration: 1, ease: "power4.out"})
+      tl.to("#estudio-intro h5", { opacity: 1, duration: 1, delay: 0.5, filter: "blur(0px)" })
+      tl.to("#destaque", { opacity: 1, x: 0, duration: 1, ease: "power4.out" })
 
       let hoverProjs = document.querySelectorAll(".project-content")
 
@@ -140,15 +133,15 @@ export default {
       gsap.to('#estudio-servicos h5', {
         opacity: 1,
         filter: "blur(0px)",
-        stagger:0.33,
+        stagger: 0.33,
         scrollTrigger: {
-          trigger:'#estudio-servicos',
+          trigger: '#estudio-servicos',
           start: 'top, center',
           end: 'center center',
           scrub: 2
         }
       })
-    }, 1000)
+    }, 600)
   },
   components: {
     FooterSection
@@ -201,6 +194,27 @@ export default {
         }
       }
     }
+
+    @media(max-width:800px) {
+      h5 {
+        max-width: 842px;
+        text-align: center;
+      }
+      a{
+        margin: 0 auto;
+        #destaque {
+          align-self: center;
+          max-width: 300px;
+          flex-wrap: wrap;
+          text-align: center;
+          justify-content: center;
+  
+          img {
+            width: 50% !important;
+          }
+        }
+      }
+    }
   }
 
   #project-scroll {
@@ -216,9 +230,14 @@ export default {
 
         .project {
           position: relative;
-          aspect-ratio: 2/2.75;
+          aspect-ratio: 2/2.65;
           width: 40vw;
           overflow: hidden;
+
+          @media(max-width: 800px) {
+            width: 100vw;
+            height: 100vh;
+          }
 
           .project-content {
             display: flex;
@@ -231,7 +250,7 @@ export default {
               right: 0;
               z-index: 1;
               display: block;
-              background-image: url('/public/images/Project-acturo.jpeg');
+              background-image: url('/public/images/projects/DB-1.png');
               background-position: 25% center;
               -webkit-filter: blur(20px);
               -moz-filter: blur(20px);
