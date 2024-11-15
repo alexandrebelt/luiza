@@ -3,7 +3,7 @@
         <div class="container-maior">
             <div class="limit">
                 <div class="contact-wrap">
-                    <div v-if="!isFormSended" id="form">
+                    <div v-if="isFormSended" id="form">
                         <div class="form-col langs">
                             <div v-html="$t('contact.heading')"></div>
                         </div>
