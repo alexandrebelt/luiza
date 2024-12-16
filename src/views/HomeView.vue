@@ -1,11 +1,11 @@
 <template>
   <div id="home">
     <section id="intro-banner" class="langs">
-      <div class="intro-banner-content">
+      <div class="intro-banner-content limit-content">
         <div v-html="$t('home.section1.heading1')"></div>
         <p>{{ $t('home.section1.sub1') }}</p>
       </div>
-      <div class="intro-banner-content">
+      <div class="intro-banner-content limit-content">
         <p>
           {{ $t('home.section1.sub2') }}
         </p>
@@ -17,7 +17,7 @@
         <div class="blur">
         </div>
         <img :src="proj.image">
-        <div class="text-content">
+        <div class="text-content limit-content">
           <h1>{{ proj.title }}</h1>
           <h5 class="heading-uppercase"> {{ proj.type }}</h5>
         </div>
@@ -25,7 +25,8 @@
 
     </section>
     <section id="estudio-session" class="container">
-      <div class="estudio-wrap">
+      <img src="images/imagemLB.png" class="estudio-lb" />
+      <div class="estudio-wrap limit-content">
         <div class="estudio-content langs">
           <h6>
             {{ $t('home.section2.heading1') }}
@@ -96,6 +97,11 @@ export default defineComponent({
       gsap.set('.intro-banner-content', {
         filter: 'blur(0)',
       })
+      gsap.set('.estudio-lb', {
+        opacity: 0,
+        filter:'blur(30px)',
+        width: "clamp(250px, 10vw, 500px)",
+      })
 
 
       tl.to('.intro-banner-content h4', {
@@ -124,19 +130,19 @@ export default defineComponent({
 
       projs.forEach((proj) => {
         gsap.set('.text-content', {
-          opacity: 0,
-          filter: "blur(30px)"
+          opacity: 1,
+          filter: "blur(0px)"
         })
         gsap.set('.blur', {
           x: 0
         })
 
         gsap.to(proj.querySelector('.text-content'), {
-          opacity: 1,
-          filter: "blur(0px)",
+          opacity: 0,
+          filter: "blur(30px)",
           scrollTrigger: {
             trigger: proj,
-            start: 'top top',
+            start: 'center 30%',
             end: 'center top',
             scrub: 1,
           }
@@ -156,6 +162,40 @@ export default defineComponent({
         })
       });
 
+      tl.to('.estudio-content h6', {
+        opacity: 1,
+        scale: 1,
+        scrollTrigger: {
+          trigger: ".estudio-content h4",
+          start: "center center",
+          end: "+=100",
+          scrub: 1,
+        }
+      })
+
+      
+
+      tl.to('.estudio-lb', {
+        keyframes: {
+          "0%": { opacity: 0},
+          "25%": { opacity: 1, filter:'blur(0px)'},
+          "50%": {
+            opacity: 1,
+            width: "clamp(250px, 10vw, 500px)",
+
+          },
+          "100%": {
+            opacity: 0.3,
+          },
+        },
+        scrollTrigger: {
+          trigger: "#estudio-session",
+          start: 'center 80%',
+          end: 'bottom 25%',
+          scrub: 4,
+
+        }
+      })
 
       tl.to('.estudio-content h4', {
         opacity: 1,
@@ -163,19 +203,21 @@ export default defineComponent({
         scrollTrigger: {
           trigger: "#estudio-session",
           start: "center center",
-          end: "bottom top",
-          scrub: 1,
-          pin: true
+          end: "bottom 10%",
+          scrub: 2,
+          pin: true,
         }
       })
-      tl.to('.estudio-content h6, .estudio-content p', {
+
+
+      tl.to('.estudio-content p', {
         opacity: 1,
         scale: 1,
         scrollTrigger: {
-          trigger: "#estudio-session",
-          start: "center center",
+          trigger: ".estudio-content h4",
+          start: "center 20%",
           end: "bottom top",
-          scrub: 1
+          scrub: 1,
         }
       })
 
@@ -241,14 +283,17 @@ export default defineComponent({
   #projects {
     position: relative;
     height: auto;
+    z-index: 10;
 
     .blur {
+      will-change: transform;
       -webkit-backdrop-filter: blur(40px);
       backdrop-filter: blur(40px);
       width: 100%;
       height: 100%;
       position: absolute;
       z-index: 0;
+
     }
 
     .project {
@@ -257,6 +302,7 @@ export default defineComponent({
       height: 100vh;
       align-items: end;
       overflow: hidden;
+
 
       .text-content {
         margin-bottom: 20vh;
@@ -276,6 +322,7 @@ export default defineComponent({
         z-index: -1;
       }
     }
+
   }
 
   #estudio-session {
@@ -283,6 +330,18 @@ export default defineComponent({
     flex-direction: column;
     justify-content: space-around;
     height: auto !important;
+    position: relative;
+
+
+    .estudio-lb {
+      z-index: -3;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 250px !important;
+      overflow: hidden;
+    }
 
     h4 {
       margin-bottom: 30px;

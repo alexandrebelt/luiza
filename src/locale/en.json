@@ -44,7 +44,8 @@
         "thankyou": "Thank you!",
         "thankyouSub": "We have received your quote request and will get in touch soon to discuss your project in detail!",
         "ops": "<h3><span>Ops! </span>Something happened, try again later :(</h3>",
-        "error": "Please, try again"
+        "error": "Please, try again",
+        "error2": "Please, fill all the fields."
     },
     "footer": {
         "heading": "Let's create an <span><i>amazing</i> project</span> together<span>?</span>",

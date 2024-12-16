@@ -107,7 +107,8 @@ nav {
     }
 
     .side-menu {
-
+        position: relative;
+        z-index: 1000;
         .btn-menu {
             position: fixed;
             top: 40px;

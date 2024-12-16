@@ -7,7 +7,7 @@
     },
     "home": {
         "section1": {
-            "heading1": "<h4>Design para <i>marcas</i> incríveis se conectarem com pessoas incríveis.</h4>",
+            "heading1": "<h4>Design para <i>marcas</i> <span>incríveis</span> se conectarem com <i>pessoas</i> <span>incríveis.</span></h4>",
             "sub1": "Somos um estúdio de design apaixonados pelo poder de transformar vidas e marcas através de soluções modernas, minimalistas e cheias de significado.",
             "sub2": "Identidade Visual + Direção de Arte + Web Design e Desenvolvimento"
         },
@@ -44,7 +44,8 @@
         "thankyou": "Obrigada!",
         "thankyouSub": "Recebemos o seu pedido de orçamento e logo logo entraremos em contato para conversarmos com calma sobre o seu projeto!",
         "ops": "<h3><span>Ops! </span>Algo aconteceu, tente novamente mais tarde :(</h3>",
-        "error": "Por favor, tente novamente com um formulário válido."
+        "error": "Por favor, tente novamente com um formulário válido.",
+        "error2": "Por favor, preencha todos os campos obrigatórios."
     },
     "footer": {
         "heading": "Vamos criar um <span>projeto <i>incrível</i>?</span>",

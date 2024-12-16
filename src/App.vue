@@ -1,9 +1,9 @@
 <template>
   <SideMenu />
   <div class="language">
-    <a @click="changeLanguage('PT')">pt</a>
-    <br>
-    <a @click="changeLanguage('EN')">en</a>
+    <a @click="changeLanguage('EN')" :class="{ inactive: $i18n.locale !== 'EN' }">EN</a>
+    <span>|</span> 
+    <a @click="changeLanguage('PT')" :class="{ inactive: $i18n.locale !== 'PT' }">PT</a>
   </div>
   <div class="loading-content" v-if="isLoading">
     <LoadingView />
@@ -152,6 +152,9 @@ section {
   max-width: 1300px;
   width: 100%;
 }
+.limit-content{
+  padding: 0 20px !important;
+}
 
 .center-content {
   display: flex;
@@ -239,9 +242,32 @@ h6 {
 }
 
 .language{
+  font-family: var(--comm);
+  font-weight: 600 !important;
   position: fixed;
+  display: flex;
+  gap:10px;
   z-index: 100;
-  top: 0;
-  left: 0;
+  top: 40px;
+  left: 40px;
+  mix-blend-mode: difference;
+  a{
+    cursor: pointer;
+    &:hover{
+      opacity: 1 !important;
+    }
+  
+  }
+  @media(max-width:800px){
+            top:30px !important;
+            left: 20px !important;
+    }
+  
 }
+.inactive{
+    opacity: 0.4;
+    transition: .2s;
+}
+
+
 </style>

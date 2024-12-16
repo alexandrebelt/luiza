@@ -4,16 +4,16 @@
 
         </div>
         <div id="cta-block1">
-            <h3 class="langs" v-html="$t('footer.heading')" :style="{ maxWidth: $i18n.locale === 'pt' ? '950px' : '900px' }">
+            <h3 class="langs" v-html="$t('footer.heading')"
+                :style="{ maxWidth: $i18n.locale === 'pt' ? '950px' : '900px' }">
 
             </h3>
-            <a href="#">
+            <router-link to="/contact">
                 <h6 class="heading-uppercase langs">
-                    <router-link to="/contact">
-                        {{ $t('footer.sub1') }}
-                    </router-link>
+                    {{ $t('footer.sub1') }}
                 </h6>
-            </a>
+                <span></span>
+            </router-link>
         </div>
         <div id="footer">
             <div id="social" class="footer-col">
@@ -80,10 +80,34 @@ export default {
     align-items: center;
     justify-content: center;
     padding: 30px;
+    z-index: 30;
 
     a {
         color: var(--preto);
+        transition: 0.5s;
+        display: inline-flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 40px;
+        align-items: center;
 
+        h6{
+            margin-bottom: 5px;
+        }
+
+        &:hover {
+            span {
+                width: 100%;
+            }
+        }
+
+        span {
+            transition: .5s;
+            width: 0px;
+            height: 5px;
+            background-color: var(--preto);
+            justify-self: center;
+        }
     }
 
     h3 {
@@ -110,11 +134,19 @@ export default {
             gap: 30px;
             padding: 30px;
         }
+        h6{
+            align-content: end;
+        }
+        #social{
+            a{
+                transition: .5s;
+                &:hover{
+                    opacity: .5;
+                }
+            }
+        }
     }
 
-    h6 {
-        margin-top: 40px;
-    }
 }
 
 @media(max-width:700px) {

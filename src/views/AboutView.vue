@@ -3,7 +3,7 @@
 
 <template>
   <div id="estudio">
-    <section id="estudio-intro" class="limit">
+    <section id="estudio-intro" class="limit limit-content">
       <div class="langs" v-html="$t('about.section1.heading1')"></div>
       <a href="https://www.behance.net/luizabola" target="_blank">
       <div id="destaque">
@@ -162,19 +162,24 @@ export default {
     }
 
     #destaque {
-      margin-top: 40px;
-      background-color: var(--cinza-escuro);
+      margin-top: 20px;
+      //background-color: var(--cinza-escuro);
       border-radius: 20px;
       display: flex;
       flex-direction: row;
-      padding: 20px 40px;
+      padding: 20px 0px;
       width: fit-content;
       align-items: center;
-      gap: 20px;
+      gap: 15px;
+      transition: opacity .3s;
+      &:hover{
+        opacity: .5 !important; 
+      }
 
       p {
-        font-size: 16px;
+        font-size:  clamp(11px, 1.5vw, 16px) !important;
         font-weight: 500;
+        border-bottom: 1px solid var(--branco);
 
         strong {
           font-weight: 600;
@@ -186,11 +191,11 @@ export default {
         object-fit: contain;
 
         &:nth-of-type(1) {
-          max-width: 35px;
+          max-width: 25px;
         }
 
         &:nth-of-type(2) {
-          max-width: 21px;
+          max-width: 14px;
         }
       }
     }
@@ -204,11 +209,24 @@ export default {
         margin: 0 auto;
         #destaque {
           align-self: center;
-          max-width: 300px;
+          max-width: 250px;
           flex-wrap: wrap;
           text-align: center;
           justify-content: center;
-  
+          border: 1px solid var(--branco);
+          border-radius: 0;
+          margin-top: 40px;
+          .langs{
+            flex-basis: 100%;
+            p{
+              margin: 0 auto;
+            }
+          }
+          p{
+            border-bottom: none;
+            font-size: 16px !important;
+            max-width: 200px;
+          }
           img {
             width: 50% !important;
           }

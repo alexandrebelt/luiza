@@ -1,24 +1,24 @@
 {
     "home": [
         {
-            "title": "Acturo",
+            "title": "Arcturo",
             "type": "identidade visual + branding",
             "image": "/images/projects/Arcturo-4.png"
         },
         {
             "title": "Duda Bradley",
             "type": "identidade visual + branding",
-            "image": "/images/projects/DB-1.png"
+            "image": "/images/projects/studio/DB-2.png"
         },
         {
-            "title": "Horaya",
+            "title": "Horya",
             "type": "identidade visual + branding",
-            "image": "/images/projects/Horya-1.png"
+            "image": "/images/projects/studio/Horya-3.png"
         },
         {
             "title": "Ions",
             "type": "identidade visual + branding",
-            "image": "/images/projects/Ions-2.png"
+            "image": "/images/projects/studio/Ions-1.png"
         },
         {
             "title": "Midra",
@@ -43,7 +43,7 @@
             "image": "/images/projects/studio/Arcturo-6.png"
         },
         {
-            "image": "/images/projects/studio/DB-2.png"
+            "image": "/images/projects/DB-1.png"
         },
         {
             "image": "/images/projects/studio/DB-3.png"
@@ -52,7 +52,7 @@
             "image": "/images/projects/studio/DB-4.png"
         },
         {
-            "image": "/images/projects/studio/Horya-2.png"
+            "image": "/images/projects/Horya-1.png"
         },
         {
             "image": "/images/projects/studio/Horya-3.png"
@@ -61,7 +61,7 @@
             "image": "/images/projects/studio/Horya-4.png"
         },
         {
-            "image": "/images/projects/studio/Ions-1.png"
+            "image": "/images/projects/Ions-2.png"
         }
     ]
 }

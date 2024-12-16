@@ -12,13 +12,13 @@ const messages = {
 
 const getLocaleFromCookie = () => {
     const match = document.cookie.match(new RegExp('(^| )locale=([^;]+)'));
-    return match ? match[2]: 'PT';
+    return match ? match[2]: ' EN';
 }
 
 const i18n = createI18n({
     legacy: false,
     locale: getLocaleFromCookie(),
-    fallbackLocale: 'PT',
+    fallbackLocale: 'EN',
     messages,
 });
 
