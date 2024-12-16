@@ -1,14 +1,8 @@
 <template>
   <SideMenu />
-  <div class="language">
-    <a @click="changeLanguage('EN')" :class="{ inactive: $i18n.locale !== 'EN' }">EN</a>
-    <span>|</span> 
-    <a @click="changeLanguage('PT')" :class="{ inactive: $i18n.locale !== 'PT' }">PT</a>
-  </div>
   <div class="loading-content" v-if="isLoading">
     <LoadingView />
   </div>
-
 
   <Transition name="fade" mode="out-in" v-else>
     <router-view />
@@ -21,7 +15,6 @@ import LocomotiveScroll from 'locomotive-scroll';
 import SideMenu from './components/SideMenu';
 import { defineComponent } from 'vue'
 import LoadingView from './components/loading/LoadingStart.vue'
-import gsap from 'gsap';
 
 
 export default defineComponent({
@@ -33,19 +26,6 @@ export default defineComponent({
   components: {
     SideMenu,
     LoadingView,
-  },
-  methods: {
-    changeLanguage(locale) {
-      if (this.$i18n.locale !== locale) {
-        gsap.to('.langs', { duration: 1, filter: 'blur(40px)', ease: 'power4.in' })
-        setTimeout(() => {
-          this.$i18n.locale = locale;
-          document.cookie = `locale=${locale}; path=/`
-          gsap.to('.langs', { duration: 1, filter: 'blur(0px)', ease: 'power4.out' })
-        }, 1000)
-      }
-    }
-
   },
   
   mounted() {
@@ -108,6 +88,7 @@ export default defineComponent({
 html,
 body {
   overflow-x: hidden;
+  scrollbar-color: var(--branco);
 }
 
 #app {
@@ -226,7 +207,7 @@ h6 {
   font-family: var(--comm);
   font-weight: 600;
   letter-spacing: 0.1em;
-  margin-top: 10px;
+  margin-top: 5px;
   font-style: initial;
 }
 
@@ -241,33 +222,7 @@ h6 {
   opacity: 0;
 }
 
-.language{
-  font-family: var(--comm);
-  font-weight: 600 !important;
-  position: fixed;
-  display: flex;
-  gap:10px;
-  z-index: 100;
-  top: 40px;
-  left: 40px;
-  mix-blend-mode: difference;
-  a{
-    cursor: pointer;
-    &:hover{
-      opacity: 1 !important;
-    }
-  
-  }
-  @media(max-width:800px){
-            top:30px !important;
-            left: 20px !important;
-    }
-  
-}
-.inactive{
-    opacity: 0.4;
-    transition: .2s;
-}
+
 
 
 </style>

@@ -100,7 +100,7 @@ export default defineComponent({
       gsap.set('.estudio-lb', {
         opacity: 0,
         filter:'blur(30px)',
-        width: "clamp(250px, 10vw, 500px)",
+        width: "clamp(230px, 10vw, 500px)",
       })
 
 
@@ -181,7 +181,7 @@ export default defineComponent({
           "25%": { opacity: 1, filter:'blur(0px)'},
           "50%": {
             opacity: 1,
-            width: "clamp(250px, 10vw, 500px)",
+            width: "clamp(230px, 10vw, 500px)",
 
           },
           "100%": {
@@ -257,7 +257,7 @@ export default defineComponent({
 
       &:nth-of-type(2) {
         position: absolute;
-        bottom: 30px;
+        bottom: 50px;
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
@@ -339,7 +339,7 @@ export default defineComponent({
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      min-width: 250px !important;
+      min-width: 220px !important;
       overflow: hidden;
     }
 
@@ -354,7 +354,7 @@ export default defineComponent({
     p {
       max-width: 784px;
       margin: 0 auto;
-      font-size: clamp(13px, 2.5vw, 20px);
+      font-size: clamp(13px, 2.5vw, 19px);
     }
 
     .estudio-content {

@@ -124,7 +124,7 @@ export default {
         justify-content: space-between;
         position: absolute;
         width: 100%;
-
+        max-width: 1200px;
         bottom: 0px;
         left: 50%;
         transform: translatex(-50%);
@@ -132,7 +132,7 @@ export default {
         .footer-col {
             display: flex;
             gap: 30px;
-            padding: 30px;
+            padding: 30px 30px 50px;
         }
         h6{
             align-content: end;

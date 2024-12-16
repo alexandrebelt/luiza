@@ -139,6 +139,9 @@ export default {
         padding-bottom: clamp(30px, 5vw, 100px);
         width: 100%;
 
+        h4 {
+            margin-bottom: 17px;
+        }
 
         .form-col {
             //flex-basis: 50%;
@@ -156,6 +159,7 @@ export default {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
+                padding-left: 80px;
 
                 label {
                     margin-top: 20px;
@@ -174,80 +178,81 @@ export default {
                     margin-left: auto;
                     cursor: pointer;
 
-                &:hover {
+                    &:hover {
+                        span {
+                            width: 100%;
+                        }
+                    }
+
                     span {
-                        width: 100%;
+                        transition: .5s;
+                        width: 0px;
+                        height: 5px;
+                        background-color: var(--marrom-escuro);
+                        justify-self: center;
                     }
                 }
 
-                span {
-                    transition: .5s;
-                    width: 0px;
-                    height: 5px;
-                    background-color: var(--marrom-escuro);
-                    justify-self: center;
+                input,
+                textarea {
+                    padding: 10px 0;
+                    font-family: var(--neue);
+                    font-weight: 500;
+                    border: 0;
+                    resize: none;
+                    background-color: transparent;
+                    border-bottom: 1px solid var(--marrom-escuro);
+                    color: var(--marrom-escuro) !important;
+                    caret-color: var(--marrom-escuro);
+                    font-size: clamp(13px, 2vw, 20px);
+                    letter-spacing: 0.05em;
+
+
+                    &:focus,
+                    :focus-visible {
+                        outline: none;
+                    }
                 }
-            }
 
-            input,
-            textarea {
-                padding: 10px 0;
-                font-family: var(--neue);
-                font-weight: 500;
-                border: 0;
-                resize: none;
-                background-color: transparent;
-                border-bottom: 2px solid var(--marrom-escuro);
-                color: var(--marrom-escuro) !important;
-                caret-color: var(--marrom-escuro);
-                font-size: clamp(13px, 2vw, 20px);
-                letter-spacing: 0.05em;
-
-
-                &:focus,
-                :focus-visible {
-                    outline: none;
+                textarea {
+                    min-height: 100px;
                 }
-            }
 
-            textarea {
-                min-height: 100px;
             }
+        }
+
+        .form-col:nth-of-type(2) {
+            display: flex;
+            align-items: end;
 
         }
     }
 
-    .form-col:nth-of-type(2) {
-        display: flex;
-        align-items: end;
-    }
-}
-
-#agradecimento {
-    color: var(--preto);
-    position: absolute !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-
-    p {
-        padding-top: 30px;
-    }
-
-    @media(max-width: 700px) {
-        padding: 20px;
-
-        h2 {
-            font-size: 45px;
-        }
+    #agradecimento {
+        color: var(--preto);
+        position: absolute !important;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
 
         p {
-            min-width: 250px;
-            padding-top: 15px;
+            padding-top: 30px;
+        }
+
+        @media(max-width: 700px) {
+            padding: 20px;
+
+            h2 {
+                font-size: 45px;
+            }
+
+            p {
+                min-width: 250px;
+                padding-top: 15px;
+            }
         }
     }
-}
 }
 
 .enviado {
@@ -258,9 +263,14 @@ export default {
     #contact {
         justify-content: center;
 
+        .form {
+            padding-left: 0px !important;
+        }
+
         #form {
             flex-direction: column;
             padding-bottom: initial;
+
 
             .form-col {
 

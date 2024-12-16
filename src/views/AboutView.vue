@@ -4,14 +4,16 @@
 <template>
   <div id="estudio">
     <section id="estudio-intro" class="limit limit-content">
-      <div class="langs" v-html="$t('about.section1.heading1')"></div>
-      <a href="https://www.behance.net/luizabola" target="_blank">
-      <div id="destaque">
-          <img src="/images/Be.png" alt="behance" />
-          <img src="/images/flag.png" alt="behance" />
-          <div class="langs" v-html="$t('about.section1.sub1')"></div>
-        </div>
-      </a>
+      <div class="estudio-intro-content">
+        <div class="langs" v-html="$t('about.section1.heading1')"></div>
+        <a href="https://www.behance.net/luizabola" target="_blank">
+          <div id="destaque">
+            <img src="/images/Be.png" alt="behance" />
+            <img src="/images/flag.png" alt="behance" />
+            <div class="langs" v-html="$t('about.section1.sub1')"></div>
+          </div>
+        </a>
+      </div>
     </section>
 
     <section id="project-scroll">
@@ -150,12 +152,14 @@ export default {
 </script>
 <style lang="scss">
 #estudio {
-
-
   #estudio-intro {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    .estudio-intro-content {
+      margin-left: 80px;
+    }
 
     h5 {
       max-width: 842px;
@@ -172,12 +176,13 @@ export default {
       align-items: center;
       gap: 15px;
       transition: opacity .3s;
-      &:hover{
-        opacity: .5 !important; 
+
+      &:hover {
+        opacity: .5 !important;
       }
 
       p {
-        font-size:  clamp(11px, 1.5vw, 16px) !important;
+        font-size: clamp(11px, 1.5vw, 16px) !important;
         font-weight: 500;
         border-bottom: 1px solid var(--branco);
 
@@ -201,12 +206,20 @@ export default {
     }
 
     @media(max-width:800px) {
+      .estudio-intro-content {
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+      }
+
       h5 {
         max-width: 842px;
         text-align: center;
       }
-      a{
+
+      a {
         margin: 0 auto;
+
         #destaque {
           align-self: center;
           max-width: 250px;
@@ -216,17 +229,21 @@ export default {
           border: 1px solid var(--branco);
           border-radius: 0;
           margin-top: 40px;
-          .langs{
+
+          .langs {
             flex-basis: 100%;
-            p{
+
+            p {
               margin: 0 auto;
             }
           }
-          p{
+
+          p {
             border-bottom: none;
             font-size: 16px !important;
             max-width: 200px;
           }
+
           img {
             width: 50% !important;
           }

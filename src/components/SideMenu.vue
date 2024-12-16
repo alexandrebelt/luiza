@@ -1,21 +1,32 @@
 <template>
     <nav>
-        <div class="side-menu">
-            <div class="btn-menu">
-                <span></span>
+        <div class="nav-buttons">
+            <div class="language">
+                <a @click="changeLanguage('EN')" :class="{ inactive: $i18n.locale !== 'EN' }">EN</a>
+                <span>|</span>
+                <a @click="changeLanguage('PT')" :class="{ inactive: $i18n.locale !== 'PT' }">PT</a>
             </div>
+            <div class="btn-menu">
+
+                <div class="btn-menu-wrap">
+                    <span
+                        :style="{ backgroundColor: $route.name === 'contact' ? 'var(--marrom-escuro) !important' : 'inherit' }"></span>
+                </div>
+            </div>
+        </div>
+        <div class="side-menu">
             <div class="menu-content">
                 <router-link to="/">
-                    <h4 class="link-menu">{{$t('menu.home')}}</h4>
+                    <h4 class="link-menu">{{ $t('menu.home') }}</h4>
                 </router-link>
                 <router-link to="/about">
-                    <h4 class="link-menu">{{$t('menu.studio')}}</h4>
+                    <h4 class="link-menu">{{ $t('menu.studio') }}</h4>
                 </router-link>
                 <router-link :to="{ path: '/', hash: '#projects' }">
-                    <h4 class="link-menu">{{$t('menu.projects')}}</h4>
+                    <h4 class="link-menu">{{ $t('menu.projects') }}</h4>
                 </router-link>
                 <router-link to="/contact">
-                    <h4 class="link-menu">{{$t('menu.contact')}}</h4>
+                    <h4 class="link-menu">{{ $t('menu.contact') }}</h4>
                 </router-link>
             </div>
         </div>
@@ -34,6 +45,16 @@ export default {
         }
     },
     methods: {
+        changeLanguage(locale) {
+            if (this.$i18n.locale !== locale) {
+                gsap.to('.langs', { duration: 1, filter: 'blur(40px)', ease: 'power4.in' })
+                setTimeout(() => {
+                    this.$i18n.locale = locale;
+                    document.cookie = `locale=${locale}; path=/`
+                    gsap.to('.langs', { duration: 1, filter: 'blur(0px)', ease: 'power4.out' })
+                }, 1000)
+            }
+        },
 
         checkHover() {
             if (this.hover) {
@@ -79,7 +100,8 @@ export default {
             paused: true,
             onComplete: this.checkHover
         });
-    }
+    },
+
 }
 </script>
 
@@ -89,6 +111,55 @@ nav {
     position: fixed;
     z-index: 100;
     display: contents;
+
+    .nav-buttons {
+
+        position: fixed;
+        display: flex;
+        max-width: 1260px;
+        justify-content: space-between;
+        width: 100%;
+        left: 50%;
+        top: 50px;
+        z-index: 1000;
+        mix-blend-mode: difference;
+        transform: translatex(-50%);
+        padding: 0 30px;
+    }
+
+    .language {
+        font-family: var(--comm);
+        font-weight: 600 !important;
+        display: flex;
+        gap: 10px;
+        z-index: 100;
+        top: 58px;
+        left: 40px;
+        mix-blend-mode: difference;
+
+        a {
+            cursor: pointer;
+            color: var(--branco);
+            font-family: var(--comm);
+
+            &:hover {
+                opacity: 1 !important;
+                font-style: normal;
+            }
+
+        }
+
+        @media(max-width:800px) {
+            top: 30px !important;
+            left: 20px !important;
+        }
+
+    }
+
+    .inactive {
+        opacity: 0.4;
+        transition: .2s;
+    }
 
     a {
         transition: var(--transition);
@@ -106,37 +177,40 @@ nav {
         }
     }
 
+    .btn-menu {
+        top: 50px;
+        right: 40px;
+        cursor: pointer;
+        z-index: 1001;
+        transition: var(--transition);
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        mix-blend-mode: difference;
+
+
+        span {
+            width: 36px;
+            height: 9px;
+            background-color: var(--branco) !important;
+            display: flex;
+
+        }
+    }
+
+    .btn-menu.active-btn {
+        transform: rotate(-30deg) !important;
+        mix-blend-mode: normal;
+    }
+
+    .btn-menu.active-btn span {
+        background-color: var(--marrom-claro) !important;
+    }
+
     .side-menu {
         position: relative;
         z-index: 1000;
-        .btn-menu {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            cursor: pointer;
-            z-index: 100;
-            transition: var(--transition);
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            mix-blend-mode: difference;
 
-            span {
-                width: 36px;
-                height: 9px;
-                background-color: var(--branco);
-                display: flex;
-            }
-        }
-
-        .btn-menu.active-btn {
-            transform: rotate(-30deg) !important;
-            mix-blend-mode: normal;
-        }
-
-        .btn-menu.active-btn span {
-            background-color: var(--marrom-claro);
-        }
 
         .menu-content {
             opacity: 0;
@@ -165,8 +239,9 @@ nav {
             opacity: 1;
         }
     }
-    @media(max-width:800px){
-        .btn-menu{
+
+    @media(max-width:800px) {
+        .btn-menu {
             top: 20px !important;
             right: 20px !important;
         }
