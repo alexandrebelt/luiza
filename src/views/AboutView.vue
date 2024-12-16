@@ -182,7 +182,7 @@ export default {
       }
 
       p {
-        font-size: clamp(11px, 1.5vw, 16px) !important;
+        font-size: clamp(11px, 1.5vw, 15px) !important;
         font-weight: 500;
         border-bottom: 1px solid var(--branco);
 
@@ -240,7 +240,7 @@ export default {
 
           p {
             border-bottom: none;
-            font-size: 16px !important;
+            font-size: 15px !important;
             max-width: 200px;
           }
 

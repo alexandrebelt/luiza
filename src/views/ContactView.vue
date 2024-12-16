@@ -151,7 +151,7 @@ export default {
             flex-basis: 50%;
 
             h4 {
-                font-size: clamp(28px, 5.5vw, 64px);
+                font-size: clamp(28px, 5.5vw, 63px);
                 color: var(--preto);
             }
 
@@ -163,7 +163,7 @@ export default {
 
                 label {
                     margin-top: 20px;
-                    font-size: clamp(13px, 2vw, 20px);
+                    font-size: clamp(13px, 2vw, 19px);
                 }
 
                 a {
@@ -204,7 +204,7 @@ export default {
                     border-bottom: 1px solid var(--marrom-escuro);
                     color: var(--marrom-escuro) !important;
                     caret-color: var(--marrom-escuro);
-                    font-size: clamp(13px, 2vw, 20px);
+                    font-size: clamp(13px, 2vw, 19px);
                     letter-spacing: 0.05em;
 
 
@@ -244,7 +244,7 @@ export default {
             padding: 20px;
 
             h2 {
-                font-size: 45px;
+                font-size: 44px;
             }
 
             p {
@@ -284,13 +284,13 @@ export default {
                 }
 
                 button {
-                    font-size: 13px;
+                    font-size: 11px;
                 }
 
                 input,
                 textarea {
                     padding: 5px !important;
-                    font-size: 13px !important;
+                    font-size: 12px !important;
                 }
             }
         }
