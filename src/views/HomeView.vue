@@ -286,13 +286,15 @@ export default defineComponent({
     z-index: 10;
 
     .blur {
+      background: url('/public/images/Grain-Texture-op-02.png');
+      background-blend-mode: multiply;
       will-change: transform;
       -webkit-backdrop-filter: blur(40px);
       backdrop-filter: blur(40px);
       width: 100%;
       height: 100%;
       position: absolute;
-      z-index: 0;
+      z-index: 3;
 
     }
 
@@ -307,7 +309,7 @@ export default defineComponent({
       .text-content {
         margin-bottom: 20vh;
         position: relative;
-        z-index: 1;
+        z-index: 10;
         mix-blend-mode: difference;
       }
 

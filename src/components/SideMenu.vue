@@ -121,7 +121,7 @@ nav {
         width: 100%;
         left: 50%;
         top: 50px;
-        z-index: 1000;
+        z-index: 1010;
         mix-blend-mode: difference;
         transform: translatex(-50%);
         padding: 0 30px;
@@ -136,8 +136,12 @@ nav {
         top: 58px;
         left: 40px;
         mix-blend-mode: difference;
+        span{
+            font-size:14px;
+        }
 
         a {
+            font-size: 14px;
             cursor: pointer;
             color: var(--branco);
             font-family: var(--comm);
@@ -181,7 +185,7 @@ nav {
         top: 50px;
         right: 40px;
         cursor: pointer;
-        z-index: 1001;
+        z-index: 1010;
         transition: var(--transition);
         aspect-ratio: 1;
         display: flex;

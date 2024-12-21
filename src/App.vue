@@ -73,11 +73,34 @@ export default defineComponent({
   --h5: clamp(28px, 4vw, 48px);
   --h6: 20px;
 
+
   --ivy: "ivyjournal", sans-serif;
   --neue: "neue-haas-grotesk-display", sans-serif;
   --comm: "commuters-sans", sans-serif;
   --eb: "eb-garamond", serif;
+
+  
 }
+html{
+  ::-webkit-scrollbar {
+  width: 5px; /* Largura da barra vertical */
+  height: 12px; /* Altura da barra horizontal */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--branco); /* Cor do polegar */
+  border-radius: 6px; /* Bordas arredondadas */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 6px; /* Opcional: bordas arredondadas */
+}
+scrollbar-color: var(--branco) transparent !important; 
+scrollbar-width: thin
+
+}
+
 
 * {
   box-sizing: border-box;
@@ -202,7 +225,7 @@ h6 {
 
 
 .heading-uppercase {
-  font-size: clamp(13px, 4vw, 17px);
+  font-size: clamp(13px, 4vw, 14px);
   text-transform: uppercase;
   font-family: var(--comm);
   font-weight: 600;
