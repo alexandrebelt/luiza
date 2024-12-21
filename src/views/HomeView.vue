@@ -25,7 +25,7 @@
 
     </section>
     <section id="estudio-session" class="container">
-      <img src="images/imagemLB.png" class="estudio-lb" />
+      <img src="images/imagemLB.jpg" class="estudio-lb" />
       <div class="estudio-wrap limit-content">
         <div class="estudio-content langs">
           <h6>

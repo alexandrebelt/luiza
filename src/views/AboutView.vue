@@ -285,7 +285,7 @@ export default {
               right: 0;
               z-index: 1;
               display: block;
-              background-image: url('/public/images/projects/DB-1.png');
+              background-image: url('/public/images/projects/DB-1.jpg');
               background-position: 25% center;
               -webkit-filter: blur(20px);
               -moz-filter: blur(20px);
