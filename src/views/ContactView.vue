@@ -163,7 +163,7 @@ export default {
 
                 label {
                     margin-top: 20px;
-                    font-size: clamp(13px, 2vw, 19px);
+                    font-size: clamp(12px, 2vw, 13px);
                 }
 
                 a {
@@ -204,7 +204,7 @@ export default {
                     border-bottom: 1px solid var(--marrom-escuro);
                     color: var(--marrom-escuro) !important;
                     caret-color: var(--marrom-escuro);
-                    font-size: clamp(13px, 2vw, 19px);
+                    font-size: clamp(13px, 2vw, 14px);
                     letter-spacing: 0.05em;
 
 

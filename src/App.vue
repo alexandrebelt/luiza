@@ -181,7 +181,7 @@ h5 {
 
 p {
   font-family: var(--neue);
-  font-size: clamp(13px, 2.5vw, 19px);
+  font-size: clamp(13px, 2.5vw, 17px);
   line-height: 1.5em;
   font-weight: 500;
 }
@@ -225,7 +225,7 @@ h6 {
 
 
 .heading-uppercase {
-  font-size: clamp(13px, 4vw, 14px);
+  font-size: clamp(12px, 4vw, 13px);
   text-transform: uppercase;
   font-family: var(--comm);
   font-weight: 600;

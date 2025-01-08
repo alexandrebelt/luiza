@@ -263,7 +263,7 @@ export default defineComponent({
         transform: translateX(-50%);
 
         p {
-          font-family: var(--ivy) !important;
+          font-family: var(--eb) !important;
           font-weight: 200;
           font-style: italic;
         }
@@ -271,7 +271,7 @@ export default defineComponent({
     }
 
     p {
-      max-width: 757px;
+      max-width: 640px;
     }
 
     h4 {
@@ -354,9 +354,9 @@ export default defineComponent({
     }
 
     p {
-      max-width: 784px;
+      max-width: 700px;
       margin: 0 auto;
-      font-size: clamp(13px, 2.5vw, 19px);
+      font-size: clamp(13px, 2.5vw, 17px);
     }
 
     .estudio-content {

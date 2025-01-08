@@ -17,7 +17,7 @@ const getLocaleFromCookie = () => {
 
 const i18n = createI18n({
     legacy: false,
-    locale: getLocaleFromCookie(),
+    locale: getLocaleFromCookie() || 'EN',
     fallbackLocale: 'EN',
     messages,
 });

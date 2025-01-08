@@ -2,7 +2,7 @@
     <nav>
         <div class="nav-buttons">
             <div class="language">
-                <a @click="changeLanguage('EN')" :class="{ inactive: $i18n.locale !== 'EN' }">EN</a>
+                <a @click="changeLanguage('EN')" :class="{ inactive: $i18n.locale && $i18n.locale === 'PT' }">EN</a>
                 <span>|</span>
                 <a @click="changeLanguage('PT')" :class="{ inactive: $i18n.locale !== 'PT' }">PT</a>
             </div>
@@ -137,11 +137,11 @@ nav {
         left: 40px;
         mix-blend-mode: difference;
         span{
-            font-size:14px;
+            font-size:13px;
         }
 
         a {
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
             color: var(--branco);
             font-family: var(--comm);

@@ -21,7 +21,9 @@
         <div class="projects">
           <div class="project" v-for="(proj, index) in projs" :key="index">
             <div class="project-content">
-              <div class="project-background" :style="{ backgroundImage: `url(${proj.image})` }"></div>
+              <div class="project-background" :style="{ backgroundImage: `url(${proj.image})` }">
+              </div>
+              <img class="project-grain-bg" src="/images/grainabout.png" />
               <img class="project-image" :src="proj.image">
             </div>
           </div>
@@ -87,6 +89,7 @@ export default {
         hoverProj.addEventListener('mouseover', () => {
           gsap.to(hover, {
             maxWidth: "100%",
+            minHeight: "100%",
             duration: 0.5,
             ease: 'power4.out-in'
           })
@@ -95,6 +98,7 @@ export default {
         hoverProj.addEventListener('mouseleave', () => {
           gsap.to(hover, {
             maxWidth: "70%",
+            minHeight: "unset",
             duration: 0.5,
             ease: 'power4.out-in'
           })
@@ -266,7 +270,7 @@ export default {
         .project {
           position: relative;
           aspect-ratio: 2/2.65;
-          width: 40vw;
+          width: 25vw;
           overflow: hidden;
 
           @media(max-width: 800px) {
@@ -285,7 +289,6 @@ export default {
               right: 0;
               z-index: 1;
               display: block;
-              background-image: url('/public/images/projects/DB-1.jpg');
               background-position: 25% center;
               -webkit-filter: blur(20px);
               -moz-filter: blur(20px);
@@ -297,6 +300,12 @@ export default {
               z-index: -1;
               overflow: hidden;
               will-change: auto;
+
+            }
+            .project-grain-bg{
+              max-width: 100%;
+              min-height: 100%;
+              object-fit: cover;
             }
 
 
