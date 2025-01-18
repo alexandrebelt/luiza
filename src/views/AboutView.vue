@@ -21,10 +21,9 @@
         <div class="projects">
           <div class="project" v-for="(proj, index) in projs" :key="index">
             <div class="project-content">
-              <div class="project-background" :style="{ backgroundImage: `url(${proj.image})` }">
+              <div class="project-background" :style="{ backgroundImage: `url('${proj}')` }">
               </div>
-              <img class="project-grain-bg" src="/images/grainabout.png" />
-              <img class="project-image" :src="proj.image">
+              <img class="project-image" :src="proj">
             </div>
           </div>
         </div>
@@ -54,7 +53,7 @@
 </template>
 <script>
 import FooterSection from '@/components/FooterSection.vue';
-import axios from 'axios';
+import initGsap from '@/utils/gsap';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -65,89 +64,17 @@ export default {
       projs: []
     }
   },
-  beforeMount() {
-    axios.get('projects.json').then(res => {
-      this.projs = res.data.studio
-    }).catch(error => {
-      console.log(error)
-    })
+  created() {
+    const requireImages = require.context(
+      '../assets/studio',
+      false,
+      /\.(png|jpe?g|svg)$/
+    );
+
+    this.projs = requireImages.keys().map(requireImages).sort().reverse();
   },
   mounted() {
-    let tl = gsap.timeline()
-    gsap.set("#estudio-intro h5", { opacity: 0, filter: "blur(30px)" })
-    gsap.set("#destaque", { opacity: 0, x: 100 })
-    setTimeout(() => {
-      tl.to("#estudio-intro h5", { opacity: 1, duration: 1, delay: 0.5, filter: "blur(0px)" })
-      tl.to("#destaque", { opacity: 1, x: 0, duration: 1, ease: "power4.out" })
-
-      let hoverProjs = document.querySelectorAll(".project-content")
-
-      for (let i = 0; i < hoverProjs.length; i++) {
-        let hoverProj = hoverProjs[i];
-        let hover = hoverProj.querySelector('.project-image');
-
-        hoverProj.addEventListener('mouseover', () => {
-          gsap.to(hover, {
-            maxWidth: "100%",
-            minHeight: "100%",
-            duration: 0.5,
-            ease: 'power4.out-in'
-          })
-        }
-        )
-        hoverProj.addEventListener('mouseleave', () => {
-          gsap.to(hover, {
-            maxWidth: "70%",
-            minHeight: "unset",
-            duration: 0.5,
-            ease: 'power4.out-in'
-          })
-        })
-      }
-    }, 150);
-
-    setTimeout(() => {
-      const projects = document.querySelector(".projects");
-
-
-      function getScrollAmount() {
-        let projectsWidth = projects.scrollWidth;
-        return -(projectsWidth - window.innerWidth);
-      }
-
-      const tween = gsap.to(projects, {
-        x: getScrollAmount,
-        duration: 3,
-        ease: "none",
-      });
-
-
-      ScrollTrigger.create({
-        trigger: ".projects-wrap",
-        start: "center center",
-        end: () => `+=${getScrollAmount() * -1}`,
-        pin: true,
-        animation: tween,
-        scrub: 1,
-        invalidateOnRefresh: true
-      })
-
-      gsap.set('#estudio-servicos h5', {
-        opacity: 0,
-        filter: "blur(30px)"
-      })
-      gsap.to('#estudio-servicos h5', {
-        opacity: 1,
-        filter: "blur(0px)",
-        stagger: 0.33,
-        scrollTrigger: {
-          trigger: '#estudio-servicos',
-          start: 'top, center',
-          end: 'center center',
-          scrub: 2
-        }
-      })
-    }, 600)
+    initGsap();
   },
   components: {
     FooterSection
@@ -290,16 +217,10 @@ export default {
               z-index: 1;
               display: block;
               background-position: 25% center;
-              -webkit-filter: blur(20px);
-              -moz-filter: blur(20px);
-              -o-filter: blur(20px);
-              -ms-filter: blur(20px);
-              filter: blur(20px);
               width: 100%;
               height: 100%;
               z-index: -1;
               overflow: hidden;
-              will-change: auto;
 
             }
             .project-grain-bg{

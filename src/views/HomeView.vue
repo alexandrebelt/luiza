@@ -58,6 +58,7 @@ import { defineComponent } from 'vue'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import axios from 'axios';
+import initGsap from '../utils/gsap'
 
 gsap.registerPlugin(ScrollTrigger);
 export default defineComponent({
@@ -77,155 +78,9 @@ export default defineComponent({
     })
   },
   mounted() {
-    const tl = gsap.timeline();
-    gsap.set('.intro-banner-content h4, .intro-banner-content p', {
-      opacity: 0,
-      filter: "blur(30px)"
-    })
-    setTimeout(() => {
+    initGsap()
+  },
 
-      let projs = document.querySelectorAll('.project');
-
-
-      gsap.set('.estudio-content h6, .estudio-content p', {
-        opacity: 0,
-      })
-      gsap.set('.estudio-content h4', {
-        opacity: 0,
-        scale: 2
-      })
-      gsap.set('.intro-banner-content', {
-        filter: 'blur(0)',
-      })
-      gsap.set('.estudio-lb', {
-        opacity: 0,
-        filter:'blur(30px)',
-        width: "clamp(230px, 10vw, 500px)",
-      })
-
-
-      tl.to('.intro-banner-content h4', {
-        opacity: 1,
-        duration: 1,
-        filter: "blur(0px)"
-      })
-      tl.to('.intro-banner-content p', {
-        opacity: 1,
-        duration: 0.5,
-        ease: 'power4.in-out',
-        filter: "blur(0px)"
-      })
-
-
-      gsap.to('.intro-banner-content', {
-        filter: 'blur(100px)',
-        scrollTrigger: {
-          trigger: '#intro-banner',
-          start: 'center 20%',
-          end: 'bottom top',
-          scrub: 2
-        }
-      })
-
-
-      projs.forEach((proj) => {
-        gsap.set('.text-content', {
-          opacity: 1,
-          filter: "blur(0px)"
-        })
-        gsap.set('.blur', {
-          x: 0
-        })
-
-        gsap.to(proj.querySelector('.text-content'), {
-          opacity: 0,
-          filter: "blur(30px)",
-          scrollTrigger: {
-            trigger: proj,
-            start: 'center 30%',
-            end: 'center top',
-            scrub: 1,
-          }
-        })
-
-
-        gsap.to(proj.querySelector('.blur'), {
-          x: "-100vw",
-          scrollTrigger: {
-            trigger: proj,
-            start: 'center center',
-            end: 'bottom top',
-            scrub: 1,
-            pin: true,
-            pinSpacing: true
-          }
-        })
-      });
-
-      tl.to('.estudio-content h6', {
-        opacity: 1,
-        scale: 1,
-        scrollTrigger: {
-          trigger: ".estudio-content h4",
-          start: "center center",
-          end: "+=100",
-          scrub: 1,
-        }
-      })
-
-      
-
-      tl.to('.estudio-lb', {
-        keyframes: {
-          "0%": { opacity: 0},
-          "25%": { opacity: 1, filter:'blur(0px)'},
-          "50%": {
-            opacity: 1,
-            width: "clamp(230px, 10vw, 500px)",
-
-          },
-          "100%": {
-            opacity: 0.3,
-          },
-        },
-        scrollTrigger: {
-          trigger: "#estudio-session",
-          start: 'center 80%',
-          end: 'bottom 25%',
-          scrub: 4,
-
-        }
-      })
-
-      tl.to('.estudio-content h4', {
-        opacity: 1,
-        scale: 1,
-        scrollTrigger: {
-          trigger: "#estudio-session",
-          start: "center center",
-          end: "bottom 10%",
-          scrub: 2,
-          pin: true,
-        }
-      })
-
-
-      tl.to('.estudio-content p', {
-        opacity: 1,
-        scale: 1,
-        scrollTrigger: {
-          trigger: ".estudio-content h4",
-          start: "center 20%",
-          end: "bottom top",
-          scrub: 1,
-        }
-      })
-
-
-    }, 400);
-
-
-  }
 })
 
 </script>
@@ -288,7 +143,6 @@ export default defineComponent({
     .blur {
       background: url('/public/images/Grain-Texture-op-02.png');
       background-blend-mode: multiply;
-      will-change: transform;
       -webkit-backdrop-filter: blur(40px);
       backdrop-filter: blur(40px);
       width: 100%;
@@ -333,16 +187,18 @@ export default defineComponent({
     justify-content: space-around;
     height: auto !important;
     position: relative;
+    overflow: hidden;
+
 
 
     .estudio-lb {
       z-index: -3;
       position: absolute;
+      object-fit: cover;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       min-width: 220px !important;
-      overflow: hidden;
     }
 
     h4 {

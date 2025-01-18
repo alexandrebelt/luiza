@@ -80,7 +80,7 @@ export default {
     align-items: center;
     justify-content: center;
     padding: 30px;
-    z-index: 30;
+    z-index: 100;
 
     a {
         color: var(--preto);

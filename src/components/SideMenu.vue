@@ -69,7 +69,6 @@ export default {
             }
             this.hover = true
             this.tween.play()
-            console.log(this.tween.progress())
             if (this.tween.progress() == 0) {
                 this.tween.restart() //not sure why play() doesn't work when progress() == 0
             }

@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="langs" id="agradecimento" v-else>
-                        <h2>{{ $t('contact.thankyou') }}</h2>
+                        <h3>{{ $t('contact.thankyou') }}</h3>
                         <p>{{ $t('contact.thankyouSub') }}</p>
                     </div>
                 </div>
@@ -47,81 +47,102 @@ export default {
         }
     },
     mounted() {
-        let whats = document.querySelector(".whatsapp");
+
+        this.updateInputMask(this.$i18n.locale);
+
         gsap.set('#agradecimento', {
             filter: 'blur(30px)',
             opacity: 0
         })
 
-        if (whats) {
-            document.querySelector('.whatsapp').addEventListener('input', function (e) {
-                var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-            });
-        }
 
     },
+    watch: {
+        '$i18n.locale'(newLocale) {
+            this.updateInputMask(newLocale);
+        }
+    },
     methods: {
-        validateForm() {
-            const form = this.$refs.form;
-            if (!form.name.value || !form.mail.value || !form.message.value) {
-                alert(this.$t('contact.error2'));
-                return false;
+        updateInputMask(locale) {
+            const formatPattern = locale == 'PT'
+                ? /(\d{0,2})(\d{0,5})(\d{0,4})/
+                : /(\d{0,3})(\d{0,3})(\d{0,4})/;
+
+            let whatsappInput = document.querySelector(".whatsapp");
+            if (whatsappInput) {
+                whatsappInput.removeEventListener('input', this.formatWhatsappInput);
+
+                this.formatWhatsappInput = function (e) {
+                    const x = e.target.value.replace(/\D/g, '').match(formatPattern);
+                    e.target.value = !x[2] ? x[1] : `(${x[1]}) ${x[2]}${x[3] ? '-' + x[3] : ''}`;
+                }
+
+                whatsappInput.addEventListener('input', this.formatWhatsappInput);
             }
-            return true;
-        },
-        sendEmail() {
 
-            if (!this.validateForm()) return;
+        }
+    },
 
-            emailjs
-                .sendForm('service_t05vohy', 'template_01uwlfk', this.$refs.form, {
-                    publicKey: 'PZZ1JqgNe-zgEggnJ',
-                })
-                .then(
-                    () => {
-                        if (!this.isFormSended) {
-                            window.scrollTo(0, 0);
-                            gsap.to('#contact .container-maior',
-                                {
-                                    filter: 'blur(30px)',
-                                    opacity: 0,
-                                    duration: 1
-                                }
-                            )
+    validateForm() {
+        const form = this.$refs.form;
+        if (!form.name.value || !form.mail.value || !form.message.value) {
+            alert(this.$t('contact.error2'));
+            return false;
+        }
+        return true;
+    },
+    sendEmail() {
+
+        if (!this.validateForm()) return;
+
+        emailjs
+            .sendForm('service_t05vohy', 'template_01uwlfk', this.$refs.form, {
+                publicKey: 'PZZ1JqgNe-zgEggnJ',
+            })
+            .then(
+                () => {
+                    if (!this.isFormSended) {
+                        window.scrollTo(0, 0);
+                        gsap.to('#contact .container-maior',
+                            {
+                                filter: 'blur(30px)',
+                                opacity: 0,
+                                duration: 1
+                            }
+                        )
+                        setTimeout(() => {
                             setTimeout(() => {
+                                this.isFormSended = true
+                                document.querySelector('#contact .container-maior').classList.add('enviado')
+                                gsap.to('#contact .container-maior',
+                                    {
+                                        filter: 'blur(0px)',
+                                        opacity: 1,
+                                        duration: 1
+                                    }
+                                )
                                 setTimeout(() => {
-                                    this.isFormSended = true
-                                    document.querySelector('#contact .container-maior').classList.add('enviado')
-                                    gsap.to('#contact .container-maior',
+
+                                    gsap.to('#agradecimento',
                                         {
                                             filter: 'blur(0px)',
                                             opacity: 1,
                                             duration: 1
                                         }
                                     )
-                                    setTimeout(() => {
+                                }, 1000)
 
-                                        gsap.to('#agradecimento',
-                                            {
-                                                filter: 'blur(0px)',
-                                                opacity: 1,
-                                                duration: 1
-                                            }
-                                        )
-                                    }, 1000)
+                            }, 500);
 
-                                }, 500);
-
-                            }, 700);
-                        }
-                    },
-                    (error) => {
-                        console.log('FAILED...', error.text);
-                    },
-                );
-        }
+                        }, 700);
+                    }
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
     }
+
 }
 </script>
 
@@ -238,6 +259,7 @@ export default {
 
         p {
             padding-top: 30px;
+            max-width:400px;
         }
 
         @media(max-width: 700px) {

@@ -14,7 +14,7 @@
 import LocomotiveScroll from 'locomotive-scroll';
 import SideMenu from './components/SideMenu';
 import { defineComponent } from 'vue'
-import LoadingView from './components/loading/LoadingStart.vue'
+import LoadingView from './components/loading/LoadingStart.vue';
 
 
 export default defineComponent({
@@ -88,7 +88,7 @@ html{
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--branco); /* Cor do polegar */
+  background-color: rgba(255, 255, 255, .3); /* Cor do polegar */
   border-radius: 6px; /* Bordas arredondadas */
 }
 
@@ -96,7 +96,7 @@ html{
   background-color: transparent;
   border-radius: 6px; /* Opcional: bordas arredondadas */
 }
-scrollbar-color: var(--branco) transparent !important; 
+scrollbar-color: rgba(255, 255, 255, .3);
 scrollbar-width: thin
 
 }
@@ -111,7 +111,7 @@ scrollbar-width: thin
 html,
 body {
   overflow-x: hidden;
-  scrollbar-color: var(--branco);
+  scrollbar-color: rgba(255, 255, 255, .3);
 }
 
 #app {
@@ -175,7 +175,7 @@ h5 {
   margin: 0;
 
   span {
-    font-family: var(--neue)
+    font-family: var(--neue);
   }
 }
 

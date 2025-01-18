@@ -8,7 +8,12 @@
         {
             "title": "Duda Bradley",
             "type": "identidade visual + branding",
-            "image": "/images/projects/studio/DB-2.jpg"
+            "image": "/images/projects/Projetos – Duda Bradley.png"
+        },
+        {
+            "title": "Brillo Caffee",
+            "type": "identidade visual + branding",
+            "image": "/images/projects/Projetos – Brillo Coffee.png"
         },
         {
             "title": "Horya",
@@ -16,52 +21,19 @@
             "image": "/images/projects/studio/Horya-3.jpg"
         },
         {
+            "title": "Ami+",
+            "type": "identidade visual + branding",
+            "image": "/images/projects/Projetos – Ami+.png"
+        },
+        {
             "title": "ÍON-s",
             "type": "identidade visual + branding",
-            "image": "/images/projects/studio/Ions-1.jpg"
+            "image": "/images/projects/Projetos – ÍON-s.png"
         },
         {
             "title": "Midra",
             "type": "identidade visual + branding",
             "image": "/images/projects/Midra-1.jpg"
-        }
-    ],
-    "studio": [
-        {
-            "image": "/images/projects/studio/Arcturo-1.jpg"
-        },
-        {
-            "image": "/images/projects/studio/Arcturo-2.jpg"
-        },
-        {
-            "image": "/images/projects/studio/Arcturo-3.jpg"
-        },
-        {
-            "image": "/images/projects/studio/Arcturo-5.jpg"
-        },
-        {
-            "image": "/images/projects/studio/Arcturo-6.jpg"
-        },
-        {
-            "image": "/images/projects/studio/DB-3.jpg"
-        },
-        {
-            "image": "/images/projects/studio/DB-4.jpg"
-        },
-        {
-            "image": "/images/projects/DB-1.jpg"
-        },
-        {
-            "image": "/images/projects/Horya-1.jpg"
-        },
-        {
-            "image": "/images/projects/studio/Horya-3.jpg"
-        },
-        {
-            "image": "/images/projects/studio/Horya-4.jpg"
-        },
-        {
-            "image": "/images/projects/Ions-2.jpg"
         }
     ]
 }
