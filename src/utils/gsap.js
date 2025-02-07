@@ -9,6 +9,10 @@ export default function initGsap() {
     const tl = gsap.timeline();
     setTimeout(() => {
 
+        //GERAL
+        setTimeout(() => {
+            document.querySelector(".nav-buttons").classList.remove("on-footer");
+        }, 300);
         //INICIO
 
         if (router.currentRoute.value.name === "home") {
@@ -118,7 +122,7 @@ export default function initGsap() {
 
                     },
                     "100%": {
-                        opacity: 0.3,
+                        opacity: 0.2,
                         y:"20vh",
                         minHeight: '100%',
                         width:'100vw'
@@ -208,7 +212,7 @@ export default function initGsap() {
             const tween = gsap.to(projects, {
                 x: getScrollAmount,
                 duration: 3,
-                ease: "none",
+                ease: "power2.inOut",
             });
 
 
@@ -217,9 +221,10 @@ export default function initGsap() {
                 start: "center center",
                 end: () => `+=${getScrollAmount() * -1}`,
                 pin: true,
+                anticipatePin: true,
                 animation: tween,
                 scrub: 1,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true,
             })
 
             gsap.set('#estudio-servicos h5', {

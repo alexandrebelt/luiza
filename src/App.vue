@@ -27,7 +27,7 @@ export default defineComponent({
     SideMenu,
     LoadingView,
   },
-  
+
   mounted() {
     // eslint-disable-next-line
     const locomotiveScroll = new LocomotiveScroll();
@@ -79,26 +79,32 @@ export default defineComponent({
   --comm: "commuters-sans", sans-serif;
   --eb: "eb-garamond", serif;
 
-  
+
 }
-html{
+
+html {
   ::-webkit-scrollbar {
-  width: 5px; /* Largura da barra vertical */
-  height: 12px; /* Altura da barra horizontal */
-}
+    width: 5px;
+    /* Largura da barra vertical */
+    height: 12px;
+    /* Altura da barra horizontal */
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, .3); /* Cor do polegar */
-  border-radius: 6px; /* Bordas arredondadas */
-}
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, .3);
+    /* Cor do polegar */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+  }
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
-  border-radius: 6px; /* Opcional: bordas arredondadas */
-}
-scrollbar-color: rgba(255, 255, 255, .3);
-scrollbar-width: thin
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 6px;
+    /* Opcional: bordas arredondadas */
+  }
 
+  scrollbar-color: rgba(255, 255, 255, .3);
+  scrollbar-width: thin
 }
 
 
@@ -112,11 +118,13 @@ html,
 body {
   overflow-x: hidden;
   scrollbar-color: rgba(255, 255, 255, .3);
+
 }
 
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   color: var(--branco)
 }
 
@@ -156,7 +164,8 @@ section {
   max-width: 1300px;
   width: 100%;
 }
-.limit-content{
+
+.limit-content {
   padding: 0 20px !important;
 }
 
@@ -184,6 +193,7 @@ p {
   font-size: clamp(13px, 2.5vw, 17px);
   line-height: 1.5em;
   font-weight: 500;
+
 }
 
 a {
@@ -244,8 +254,4 @@ h6 {
 .fade-leave-to {
   opacity: 0;
 }
-
-
-
-
 </style>

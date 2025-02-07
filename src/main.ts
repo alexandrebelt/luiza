@@ -5,6 +5,7 @@ import { createI18n } from 'vue-i18n'
 import PT from './locale/pt.json'
 import EN from './locale/en.json'
 
+
 const messages = {
     PT,
     EN

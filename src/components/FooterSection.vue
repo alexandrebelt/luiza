@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import router from '@/router';
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -42,7 +43,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
 
+
+
     mounted() {
+
 
         setTimeout(() => {
 
@@ -50,6 +54,42 @@ export default {
                 opacity: 0,
                 filter: "blur(30px)"
             })
+
+            gsap.set('.nav-buttons', { opacity: 1 })
+            gsap.to('.nav-buttons', {
+                keyframes: {
+                    "0%": {
+                        opacity: 1,
+                    },
+                    "40%": {
+                        opacity: 0,
+                        onUpdate: function () {
+                            const progress = this.progress();  // Obtendo o progresso da animação
+
+                            // Verificando o progresso e adicionando/removendo a classe
+                            if (progress >= 0.5 && router.currentRoute.value.name !== 'contact') {
+                                document.querySelector(".nav-buttons").classList.add("on-footer");
+                            } else {
+                                document.querySelector(".nav-buttons").classList.remove("on-footer");
+                            }
+                        }
+                    },
+                    '60%': {
+                        opacity: 0,
+                    },
+                    "100%": {
+                        opacity: 1,
+                    }
+                },
+
+                scrollTrigger: {
+                    trigger: "#cta",
+                    start: "center bottom",
+                    end: "center 60%",
+                    scrub: 3,
+                }
+            })
+
 
 
             gsap.to('#cta-block1, #footer', {
@@ -65,7 +105,8 @@ export default {
                 }
             })
         }, 700);
-    }
+    },
+
 }
 </script>
 
@@ -91,7 +132,7 @@ export default {
         margin-top: 40px;
         align-items: center;
 
-        h6{
+        h6 {
             margin-bottom: 5px;
         }
 
@@ -113,9 +154,12 @@ export default {
     h3 {
         font-family: var(--neue);
         max-width: 929px;
+        font-weight: 300 !important;
+
 
         span {
             font-family: var(--ivy);
+            font-weight: 200 !important;
         }
     }
 
@@ -134,13 +178,16 @@ export default {
             gap: 30px;
             padding: 30px 30px 50px;
         }
-        h6{
+
+        h6 {
             align-content: end;
         }
-        #social{
-            a{
+
+        #social {
+            a {
                 transition: .5s;
-                &:hover{
+
+                &:hover {
                     opacity: .5;
                 }
             }

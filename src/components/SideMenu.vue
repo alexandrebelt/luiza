@@ -1,16 +1,22 @@
 <template>
     <nav>
-        <div class="nav-buttons">
-            <div class="language">
-                <a @click="changeLanguage('EN')" :class="{ inactive: $i18n.locale && $i18n.locale === 'PT' }">EN</a>
+        <div class="nav-buttons" :style="{mixBlendMode: $route.name === 'contact' ? 'unset' : 'difference'}">
+            <div class="language" :style="{color: $route.name==='contact' ? 'var(--marrom-escuro) !important' : 'inherit'}">
+                <a @click="changeLanguage('EN')" 
+                :class="{ inactive: $i18n.locale && $i18n.locale === 'PT' }"
+                :style="{color: $route.name==='contact' ? 'var(--marrom-escuro) !important' : 'inherit'}"
+                >EN</a>
                 <span>|</span>
-                <a @click="changeLanguage('PT')" :class="{ inactive: $i18n.locale !== 'PT' }">PT</a>
+                <a @click="changeLanguage('PT')" 
+                :class="{ inactive: $i18n.locale !== 'PT' }"
+                :style="{color: $route.name==='contact' ? 'var(--marrom-escuro) !important' : 'inherit'}"
+                >PT</a>
             </div>
             <div class="btn-menu">
 
                 <div class="btn-menu-wrap">
                     <span
-                        :style="{ backgroundColor: $route.name === 'contact' ? 'var(--marrom-escuro) !important' : 'inherit' }"></span>
+                        :style="{ backgroundColor: $route.name === 'contact' ? 'var(--marrom-escuro) !important' : ' var(--branco)' }"></span>
                 </div>
             </div>
         </div>
@@ -195,7 +201,7 @@ nav {
         span {
             width: 36px;
             height: 9px;
-            background-color: var(--branco) !important;
+            background-color: var(--branco);
             display: flex;
 
         }
@@ -247,6 +253,23 @@ nav {
         .btn-menu {
             top: 20px !important;
             right: 20px !important;
+        }
+    }
+}
+
+.on-footer{
+    mix-blend-mode: unset !important;
+    color:#A49688 !important;
+    .btn-menu-wrap{
+        span{
+            background-color: var(--marrom-claro) !important;
+        }
+    }
+    a{
+        color: #A49688 !important;
+        span{
+            background-color: #A49688 !important;
+            color: #A49688 !important;
         }
     }
 }

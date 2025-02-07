@@ -13,13 +13,13 @@
     </section>
 
     <section id="projects">
-      <div class="project" v-for="(proj, index) in projs" v-bind:key="index">
+      <div class="project" v-for="(proj, index) in tradsProjs" v-bind:key="index">
         <div class="blur">
         </div>
         <img :src="proj.image">
         <div class="text-content limit-content">
           <h1>{{ proj.title }}</h1>
-          <h5 class="heading-uppercase"> {{ proj.type }}</h5>
+          <h5 class="heading-uppercase langs"> {{ proj.type }}</h5>
         </div>
       </div>
 
@@ -52,7 +52,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import FooterSection from '@/components/FooterSection.vue';
 import { defineComponent } from 'vue'
 import gsap from 'gsap';
@@ -68,6 +68,18 @@ export default defineComponent({
   data() {
     return {
       projs: []
+    }
+  },
+  computed: {
+    currentLocale() {
+      return this.$i18n.locale;
+    },
+
+    tradsProjs() {
+      return this.projs.map(proj => ({
+        ...proj,
+        type: proj.type[this.currentLocale]
+      }));
     }
   },
   beforeMount() {
