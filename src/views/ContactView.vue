@@ -20,7 +20,7 @@
                                 <label class="heading-uppercase">{{ $t('contact.input5') }}</label>
                                 <textarea class="" id="message" name="message"
                                     :placeholder="$t('contact.input5PH')"></textarea>
-                                <a class="heading-uppercase" @click.prevent="sendEmail">
+                                <a id="send-form" class="heading-uppercase" @click.prevent="sendEmail">
                                     {{ $t('contact.send') }}
                                 </a>
                             </form>
@@ -45,19 +45,27 @@ export default {
         }
     },
     mounted() {
-
         this.updateInputMask(this.$i18n.locale);
-
-        gsap.set('#agradecimento', {
-            filter: 'blur(30px)',
-            opacity: 0
-        })
-
-
     },
     watch: {
         '$i18n.locale'(newLocale) {
             this.updateInputMask(newLocale);
+        },
+
+        'isFormSended'(newValue) {
+            if (newValue) {
+                this.$nextTick(() => {
+                    gsap.set('#agradecimento', {
+                        filter: 'blur(30px)',
+                        opacity: 0
+                    })
+                    gsap.to('#agradecimento', {
+                        filter: 'blur(0px)',
+                        opacity: 1,
+                        duration: 1
+                    })
+                })
+            }
         }
     },
     methods: {
@@ -78,69 +86,54 @@ export default {
                 whatsappInput.addEventListener('input', this.formatWhatsappInput);
             }
 
-        }
-    },
+        },
 
-    validateForm() {
-        const form = this.$refs.form;
-        if (!form.name.value || !form.mail.value || !form.message.value) {
-            alert(this.$t('contact.error2'));
-            return false;
-        }
-        return true;
-    },
-    sendEmail() {
+        validateForm() {
+            const form = this.$refs.form;
+            if (!form.name.value || !form.mail.value || !form.message.value) {
+                alert(this.$t('contact.error2'));
+                return false;
+            }
+            return true;
+        },
+        sendEmail() {
 
-        if (!this.validateForm()) return;
-        
-        emailjs
-            .sendForm('service_t05vohy', 'template_01uwlfk', this.$refs.form, {
-                publicKey: 'PZZ1JqgNe-zgEggnJ',
-            })
-            .then(
-                () => {
-                    if (!this.isFormSended) {
-                        window.scrollTo(0, 0);
-                        gsap.to('#contact .container-maior',
-                            {
-                                filter: 'blur(30px)',
-                                opacity: 0,
-                                duration: 1
-                            }
-                        )
-                        setTimeout(() => {
+            if (!this.validateForm()) return;
+
+            emailjs
+                .sendForm('service_t05vohy', 'template_01uwlfk', this.$refs.form, {
+                    publicKey: 'PZZ1JqgNe-zgEggnJ',
+                })
+                .then(
+                    () => {
+                        if (!this.isFormSended) {
+                            window.scrollTo(0, 0);
+                            gsap.to('#contact .container-maior',
+                                {
+                                    filter: 'blur(30px)',
+                                    opacity: 0,
+                                    duration: 1
+                                }
+                            )
                             setTimeout(() => {
                                 this.isFormSended = true
                                 document.querySelector('#contact .container-maior').classList.add('enviado')
                                 gsap.to('#contact .container-maior',
                                     {
                                         filter: 'blur(0px)',
-                                        opacity: 1,
+                                        opacity: 0,
                                         duration: 1
                                     }
                                 )
-                                setTimeout(() => {
-
-                                    gsap.to('#agradecimento',
-                                        {
-                                            filter: 'blur(0px)',
-                                            opacity: 1,
-                                            duration: 1
-                                        }
-                                    )
-                                }, 1000)
-
-                            }, 500);
-
-                        }, 700);
-                    }
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
-            );
+                            }, 1000);
+                        }
+                    },
+                    (error) => {
+                        console.log('FAILED...', error.text);
+                    },
+                );
+        }
     }
-
 }
 </script>
 

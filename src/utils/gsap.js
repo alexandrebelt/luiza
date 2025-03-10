@@ -11,7 +11,15 @@ export default function initGsap() {
     //GERAL
     setTimeout(() => {
         document.querySelector(".nav-buttons").classList.remove("on-footer");
-    }, 300);
+    }, 500);
+    gsap.set('.blur', {
+        opacity:0
+    })
+    setTimeout(() => {
+        gsap.to('.blur', {
+            opacity:1
+        })
+    }, 500);
     //INICIO
 
     if (router.currentRoute.value.name === "home") {
