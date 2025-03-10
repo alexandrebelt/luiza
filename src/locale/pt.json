@@ -2,24 +2,27 @@
     "menu": {
         "home": "Home",
         "studio": "Estúdio",
-        "projects": "Projetos",
+        "projects": "Portfolio",
         "contact": "Contato"
     },
     "home": {
         "section1": {
-            "heading1": "<h4>Design para <i>marcas</i> <span>incríveis</span> se conectarem com <i>pessoas</i> <span>incríveis.</span></h4>",
+            "heading1": "<h2><span>Design</span> onde a <i>beleza</i> <span>encontra</span> <i>essência.</i></h2>",
             "sub1": "Somos um estúdio de design apaixonados pelo poder de transformar vidas e marcas através de soluções modernas, minimalistas e cheias de significado.",
-            "sub2": "Identidade Visual + Direção de Arte + Web Design e Desenvolvimento"
+            "sub2": "Identidade Visual + Embalagem + Direção Artística + Web Design & Desenvolvimento"
         },
         "section2": {
             "heading1": "Estúdio",
             "sub1": "The founder",
             "text": "Olá, eu sou a Luiza! Apaixonada por arte e comunicação, acredito no design não só como uma ferramenta essencial para as marcas, mas também como agente transformador, com potencial de contar histórias que conectam pessoas através das mais significativas mensagens. Com mais de nove anos de experiência no mercado, fundei o Luiza Bola Estúdio para dar vida ao meu sonho de, através do design minimalista, moderno e com propósito, ajudar cada vez mais marcas a expressarem visualmente sua história."
+        },
+        "section3":{
+            "heading": "<h2><span>Veja mais dos nossos</span> <i>trabalhos</i> selecionados!"
         }
     },
     "about": {
         "section1":{
-            "heading1":"<h5>Combinamos design <span>minimalista</span> e <span>moderno</span> com <i>significado</i>, histórias e <span>essências</span> para criar <i>projetos</i> <span>de marca</span> autênticos <i>e exclusivos</i>. </h5>",
+            "heading1":"<h4><span>Somos</span> <i>apaixonados</i> pelo <span>poder de</span> transformar vidas e <i>marcas</i> <span>através de</span> design moderno, minimalista <span>e cheio de</span> <i>significados.</i> </h4>",
             "sub1":"<p>5 vezes <strong>destaque internacional</strong> em Design Gráfico</p>"
         },
         "section2": {
@@ -33,22 +36,25 @@
         }
     },
     "contact": {
-        "heading": "<h4><span>Vamos criar um</span><br> projeto <i>incrível?</i></h4>",
+        "heading": "<h4><span>Vamos trazer sua</span><br><i>visão</i> <span>para a</span> <i>vida?</i></h4>",
         "input1": "Nome",
         "input2": "Empresa",
         "input3": "E-mail",
         "input4": "Whatsapp",
         "input5": "Como podemos te ajudar?",
         "input5PH": "Fale mais sobre sua empresa e o que ela precisa, por favor!",
-        "send": "Enviar",
+        "send": "Enviar!",
         "thankyou": "Obrigada!",
-        "thankyouSub": "Recebemos o seu pedido de orçamento e logo logo entraremos em contato para conversarmos com calma sobre o seu projeto!",
         "ops": "<h3><span>Ops! </span>Algo aconteceu, tente novamente mais tarde :(</h3>",
         "error": "Por favor, tente novamente com um formulário válido.",
         "error2": "Por favor, preencha todos os campos obrigatórios."
     },
+    "portfolio":{
+        "heading": "Trabalhos Selecionados",
+        "sub": "Forma, alma & histórias"
+    },
     "footer": {
-        "heading": "Vamos criar um <span>projeto <i>incrível</i>?</span>",
+        "heading": "Vamos trazer sua <i>visão </i>para a <i>vida?</i>",
         "sub1": "Solicite um orçamento"
     }
 }

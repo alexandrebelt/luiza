@@ -6,7 +6,7 @@
     <section id="estudio-intro" class="limit limit-content">
       <div class="estudio-intro-content">
         <div class="langs" v-html="$t('about.section1.heading1')"></div>
-        <a href="https://www.behance.net/luizabola" target="_blank">
+        <a class="destaque-link links" href="https://www.behance.net/luizabola" target="_blank">
           <div id="destaque">
             <img src="/images/Be.png" alt="behance" />
             <img src="/images/flag.png" alt="behance" />
@@ -16,19 +16,7 @@
       </div>
     </section>
 
-    <section id="project-scroll">
-      <div class="projects-wrap">
-        <div class="projects">
-          <div class="project" v-for="(proj, index) in projs" :key="index">
-            <div class="project-content">
-              <div class="project-background" :style="{ backgroundImage: `url('${proj}')` }">
-              </div>
-              <img class="project-image" :src="proj">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <section id="estudio-servicos">
       <div class="langs estudio-heading">
@@ -47,6 +35,28 @@
       <h5 class="langs" v-html="$t('about.section2.item5')"></h5>
     </section>
 
+    <section id="estudio-session" class="container">
+      <div class="estudio-wrap limit-content">
+        <div class="estudio-content langs">
+          <h6>
+            {{ $t('home.section2.heading1') }}
+          </h6>
+          <h6 class="heading-uppercase">
+            {{ $t('home.section2.sub1') }}
+          </h6>
+        </div>
+
+        <div class="estudio-content langs">
+          <h4>
+            Luiza <i>Bola</i>
+          </h4>
+          <p>
+            {{ $t('home.section2.text') }}
+          </p>
+        </div>
+      </div>
+    </section>
+
     <FooterSection />
 
   </div>
@@ -61,17 +71,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   data() {
     return {
-      projs: []
-    }
-  },
-  created() {
-    const requireImages = require.context(
-      '../assets/studio',
-      false,
-      /\.(png|jpe?g|svg)$/
-    );
 
-    this.projs = requireImages.keys().map(requireImages).sort().reverse();
+    }
   },
   mounted() {
     initGsap();
@@ -89,14 +90,26 @@ export default {
     justify-content: center;
 
     .estudio-intro-content {
-      margin-left: 80px;
+      display: flex;
+      flex-direction: column;
+
+      .destaque-link {
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
-    h5 {
-      max-width: 842px;
+    h4 {
+      max-width: 1100px;
+      text-align: center;
+      margin: 0 auto;
     }
 
     #destaque {
+      margin: 0 auto;
       margin-top: 20px;
       //background-color: var(--cinza-escuro);
       border-radius: 20px;
@@ -153,26 +166,26 @@ export default {
 
         #destaque {
           align-self: center;
-          max-width: 250px;
+          max-width: 340px;
           flex-wrap: wrap;
           text-align: center;
           justify-content: center;
-          border: 1px solid var(--branco);
           border-radius: 0;
           margin-top: 40px;
+          row-gap: 10px;
 
           .langs {
             flex-basis: 100%;
 
             p {
               margin: 0 auto;
+              padding: 0 20px;
             }
           }
 
           p {
             border-bottom: none;
-            font-size: 15px !important;
-            max-width: 200px;
+            font-size: 13px !important;
           }
 
           img {
@@ -181,79 +194,27 @@ export default {
         }
       }
     }
-  }
 
-  #project-scroll {
-    height: auto !important;
-
-    .projects-wrap {
-      .projects {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: hidden;
-        width: fit-content;
-        gap: 40px;
-
-        .project {
-          position: relative;
-          aspect-ratio: 2/2.65;
-          width: 25vw;
-          overflow: hidden;
-
-          @media(max-width: 800px) {
-            width: 100vw;
-            height: 100vh;
-          }
-
-          .project-content {
-            display: flex;
-            aspect-ratio: 2/2.75;
-            overflow: hidden;
-
-            .project-background {
-              position: absolute;
-              left: 0;
-              right: 0;
-              z-index: 1;
-              display: block;
-              background-position: 25% center;
-              width: 100%;
-              height: 100%;
-              z-index: -1;
-              overflow: hidden;
-
-            }
-            .project-grain-bg{
-              max-width: 100%;
-              min-height: 100%;
-              object-fit: cover;
-            }
-
-
-
-            img {
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              aspect-ratio: 2/3;
-              height: auto;
-              object-fit: cover;
-              object-position: center;
-              max-width: 70%;
-              width: fit-content;
-            }
-          }
+    @media (max-width:600px) {
+      .estudio-intro-content {
+        
+        h4 {
+          max-width: 300px !important;
+          font-size: 40px;
         }
       }
     }
   }
+
+
 
   #estudio-servicos {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    background-color: var(--branco);
+    color: var(--preto);
 
     .estudio-heading {
       margin-bottom: 50px;
@@ -261,6 +222,40 @@ export default {
 
     h5 {
       line-height: 1.5em;
+    }
+  }
+
+}
+
+#estudio-session {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: auto !important;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+
+
+
+  h4 {
+    margin-bottom: 30px;
+  }
+
+  h6 {
+    color: var(--branco) !important;
+  }
+
+  p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: clamp(13px, 2.5vw, 17px);
+  }
+
+  .estudio-content {
+    &:nth-of-type(1) {
+      padding-bottom: 25vh;
     }
   }
 }

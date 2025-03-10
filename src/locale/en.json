@@ -2,24 +2,27 @@
     "menu": {
         "home": "Home",
         "studio": "Studio",
-        "projects": "Projects",
+        "projects": "Portfolio",
         "contact": "Contact"
     },
     "home": {
         "section1": {
-            "heading1": "<h4>Design for  <i>amazing</i> <span>brands</span> to connect with <i>amazing</i> <span>people.</span></h4>",
+            "heading1": "<h2><span>Design</span> where <i>beauty</i> <span>meets</span> <i>soul.</i></h2>",
             "sub1": "We are a design studio passionate about the power of transforming lives and brands through modern, minimalist, and meaningful solutions.",
-            "sub2": "Visual Identity + Art Direction + Web Design and Development"
+            "sub2": "Brand Identity + Packaging + Art Direction + Web Design & Development"
         },
         "section2": {
             "heading1": "Studio",
             "sub1": "The founder",
             "text": "Hello, I’m Luiza! Passionate about art and communication, I believe design is not just an essential tool for brands, but also a transformative agent with the power to tell stories that connect people through the most meaningful messages. With over nine years of experience in the industry, I founded Luiza Bola Studio to bring my dream to life: helping more and more brands visually express their stories through modern, minimalist, and purposeful design."
+        },
+        "section3":{
+            "heading": "<h2><span>See more  of our</span> <i>curated</i> work!"
         }
     },
     "about": {
         "section1": {
-            "heading1": "<h5>We combine <span>minimalist</span> and <span>modern</span> design with <i>meaning</i>, stories and <span>essence</span> to create <i>authentic and exclusive</i> <span>brand projects.</span> </h5>",
+            "heading1": "<h4><span>We are</span> <i>passionate</i> about <span>the power of</span> transforming <i>lives</i> and <i>brands</i> <span>through</span> modern, minimalist, <span>and</span> <i>meaningful</i> design.</h4>",
             "sub1": "<p>5-time <strong>international recognition</strong> in Graphic Design.</p>"
         },
         "section2": {
@@ -33,22 +36,25 @@
         }
     },
     "contact": {
-        "heading": "<h4><span>Let's create an</span><br><i>amazing</i> project?</h4>",
+        "heading": "<h4><span>Let's bring your</span><br><i>vision</i> <span>to</span> <i>life?</i></h4>",
         "input1": "name",
         "input2": "your brand name",
         "input3": "E-mail",
         "input4": "phone",
         "input5": "how can we help you?",
         "input5PH": "Tell me more about your company and what it needs, please!",
-        "send": "Send",
-        "thankyou": "Thanks!",
-        "thankyouSub": "We have received your quote request and will get in touch soon to discuss your project in detail!",
+        "send": "Send!",
+        "thankyou": "Thank you!",
         "ops": "<h3><span>Ops! </span>Something happened, try again later :(</h3>",
         "error": "Please, try again",
         "error2": "Please, fill all the fields."
     },
+    "portfolio":{
+        "heading": "Selected Works",
+        "sub": "Form, soul & stories"
+    },
     "footer": {
-        "heading": "Let's create an <span><i>amazing</i> project</span> together<span style='font-family: var(--neue); font-weight: 300 !important;'>?</span>",
+        "heading": "Let's  bring your <i>vision</i> to <i>life?</i>",
         "sub1": "Let's Talk!"
     }
 }

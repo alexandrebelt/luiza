@@ -28,7 +28,7 @@
                 <router-link to="/about">
                     <h4 class="link-menu">{{ $t('menu.studio') }}</h4>
                 </router-link>
-                <router-link :to="{ path: '/', hash: '#projects' }">
+                <router-link to="/portfolio">
                     <h4 class="link-menu">{{ $t('menu.projects') }}</h4>
                 </router-link>
                 <router-link to="/contact">
@@ -125,11 +125,12 @@ nav {
         justify-content: space-between;
         width: 100%;
         left: 50%;
-        top: 50px;
+        top: 40px;
         z-index: 1010;
         mix-blend-mode: difference;
         transform: translatex(-50%);
         padding: 0 30px;
+        align-items: center;
     }
 
     .language {
@@ -141,6 +142,9 @@ nav {
         top: 58px;
         left: 40px;
         mix-blend-mode: difference;
+        a,span{
+            height: fit-content;
+        }
         span{
             font-size:13px;
         }
@@ -174,6 +178,7 @@ nav {
         transition: var(--transition);
         color: var(--preto);
         font-family: var(--ivy);
+    
 
 
         &:hover {
@@ -187,8 +192,6 @@ nav {
     }
 
     .btn-menu {
-        top: 50px;
-        right: 40px;
         cursor: pointer;
         z-index: 1010;
         transition: var(--transition);
@@ -203,6 +206,7 @@ nav {
             height: 9px;
             background-color: var(--branco);
             display: flex;
+            
 
         }
     }
@@ -240,6 +244,7 @@ nav {
 
             .link-menu {
                 line-height: 1.5em;
+                font-size: 62px;
             }
         }
 

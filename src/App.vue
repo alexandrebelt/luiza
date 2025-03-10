@@ -1,5 +1,12 @@
 <template>
   <SideMenu />
+
+
+  <div class="ball">
+    <div class="cross">+</div>
+  </div>
+
+
   <div class="loading-content" v-if="isLoading">
     <LoadingView />
   </div>
@@ -15,6 +22,10 @@ import LocomotiveScroll from 'locomotive-scroll';
 import SideMenu from './components/SideMenu';
 import { defineComponent } from 'vue'
 import LoadingView from './components/loading/LoadingStart.vue';
+import gsap from 'gsap';
+import { TweenMax } from 'gsap';
+
+gsap.registerPlugin(TweenMax);
 
 
 export default defineComponent({
@@ -44,7 +55,64 @@ export default defineComponent({
 
       }, 200);
     }
+
+
+    const ball = document.querySelector('.ball');
+
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let ballX = 0;
+    let ballY = 0;
+    let speed = .1;
+
+    // Update ball position
+    function animate() {
+
+      let links = document.querySelectorAll('.links'); // Seleciona todos os links
+      for (let i = 0; i < links.length; i++) {
+        let link = links[i];
+        link.addEventListener('mouseover', () => {
+          ball.classList.add('scale-up');
+          // Remover o ponto extra aqui
+        });
+
+        link.addEventListener('mouseout', () => {
+          ball.classList.remove('scale-up');
+        });
+
+        link.addEventListener('click', () => {
+          ball.classList.remove('scale-up');
+        })
+      }
+      //Determine distance between ball and mouse
+      let distX = mouseX - ballX;
+      let distY = mouseY - ballY;
+
+      // Find position of ball and some distance * speed
+      ballX = ballX + (distX * speed);
+      ballY = ballY + (distY * speed);
+
+      ball.style.left = ballX + "px";
+      ball.style.top = ballY + "px";
+
+
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Move ball with cursor
+    window.addEventListener("mousemove", function (event) {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+    });
+
+
+
   }
+
+
 
 })
 </script>
@@ -67,7 +135,7 @@ export default defineComponent({
 
   //Font-sizes
   --h1: clamp(42px, 13vw, 152px);
-  --h2: 128px;
+  --h2: clamp(42px, 10vw, 128px);
   --h3: clamp(35px, 10vw, 96px);
   --h4: clamp(30px, 5.7vw, 64px);
   --h5: clamp(28px, 4vw, 48px);
@@ -108,6 +176,34 @@ html {
 }
 
 
+.ball {
+  background: #fff;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  transform: translate(-100%, -100%);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 99999;
+  scale: .5;
+  font-size: 0;
+  transition: background-color .3s, scale .3s, transform .3s;
+
+  .cross {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -118,6 +214,7 @@ html,
 body {
   overflow-x: hidden;
   scrollbar-color: rgba(255, 255, 255, .3);
+
 
 }
 
@@ -163,6 +260,11 @@ section {
   padding: 0 50px;
   max-width: 1300px;
   width: 100%;
+  margin: 0 auto;
+
+  @media(max-width:700px) {
+    padding: 0 30px;
+  }
 }
 
 .limit-content {
@@ -208,7 +310,7 @@ h1 {
 
 h2 {
   font-size: var(--h2);
-  line-height: 1.1em;
+  line-height: 1em;
 }
 
 h3 {
@@ -253,5 +355,30 @@ h6 {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.scale-up {
+  scale: 1 !important;
+  background-color: var(--marrom-claro);
+  mix-blend-mode: normal;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+
+  .cross {
+    color: var(--branco)
+  }
+}
+
+.link {}
+
+
+@media only screen and (hover: none) and (pointer: coarse) {
+  .ball {
+    display: none;
+  }
+
+  .blur-port {
+    display: none !important;
+  }
 }
 </style>

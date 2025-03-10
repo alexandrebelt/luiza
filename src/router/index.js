@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ContactView from '@/views/ContactView.vue'
+import SingleProject from '@/views/SingleProject.vue';
 import gsap from 'gsap'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import PortfolioView from '@/views/PortfolioView.vue';
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 const routes = [
@@ -29,6 +31,17 @@ const routes = [
     path: '/contact',
     name: 'contact',
     component: ContactView
+  },
+  {
+    path: '/portfolio',
+    name: 'portfolio',
+    component: PortfolioView
+  },
+  {
+    path: '/:projectTitle',
+    name: 'project',
+    component: SingleProject,
+    props: true
   }
 ]
 

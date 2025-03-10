@@ -1,9 +1,8 @@
 <template>
   <div id="home">
     <section id="intro-banner" class="langs">
-      <div class="intro-banner-content limit-content">
+      <div class="intro-banner-content limit">
         <div v-html="$t('home.section1.heading1')"></div>
-        <p>{{ $t('home.section1.sub1') }}</p>
       </div>
       <div class="intro-banner-content limit-content">
         <p>
@@ -16,35 +15,21 @@
       <div class="project" v-for="(proj, index) in tradsProjs" v-bind:key="index">
         <div class="blur">
         </div>
-        <img :src="proj.image">
-        <div class="text-content limit-content">
-          <h1>{{ proj.title }}</h1>
-          <h5 class="heading-uppercase langs"> {{ proj.type }}</h5>
-        </div>
+        <router-link :to="{ name: 'project', params: { projectTitle: proj.title } }">
+          <img :src="proj.cover" class="links">
+          <div class="text-content limit-content links">
+            <h1>{{ proj.title }}</h1>
+          </div>
+        </router-link>
       </div>
 
     </section>
-    <section id="estudio-session" class="container">
-      <img src="images/imagemLB.jpg" class="estudio-lb" />
-      <div class="estudio-wrap limit-content">
-        <div class="estudio-content langs">
-          <h6>
-            {{ $t('home.section2.heading1') }}
-          </h6>
-          <h6 class="heading-uppercase">
-            {{ $t('home.section2.sub1') }}
-          </h6>
-        </div>
 
-        <div class="estudio-content langs">
-          <h4>
-            Luiza <i>Bola</i>
-          </h4>
-          <p>
-            {{ $t('home.section2.text') }}
-          </p>
-        </div>
-      </div>
+    <section id="see-more-works">
+      <router-link to="/portfolio">
+        <div class="langs links" :class="{ 'pt-see-more-works': $i18n.locale === 'PT' }"
+          v-html="$t('home.section3.heading')"></div>
+      </router-link>
     </section>
 
     <FooterSection />
@@ -59,39 +44,38 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import axios from 'axios';
 import initGsap from '../utils/gsap'
+import data from '@/assets/singleProjs.json'
 
 gsap.registerPlugin(ScrollTrigger);
 export default defineComponent({
+  mounted() {
+    initGsap()
+  },
   components: {
     FooterSection
   },
   data() {
     return {
-      projs: []
+      projs: data.projs.slice(0, 3)
     }
   },
   computed: {
-    currentLocale() {
-      return this.$i18n.locale;
-    },
-
     tradsProjs() {
       return this.projs.map(proj => ({
         ...proj,
-        type: proj.type[this.currentLocale]
       }));
     }
   },
   beforeMount() {
-    axios.get('projects.json').then(res => {
-      this.projs = res.data.home
+
+    axios.get('@/assets/singleProjs.json').then(res => {
+      this.projs = res.data.projs
+      console.log(this.projs)
     }).catch(error => {
       console.log(error)
     })
   },
-  mounted() {
-    initGsap()
-  },
+
 
 })
 
@@ -100,6 +84,10 @@ export default defineComponent({
 <style lang="scss">
 #home {
   text-align: center;
+
+  .limit {
+    max-width: 1290px;
+  }
 
   section {
     h6 {
@@ -118,9 +106,6 @@ export default defineComponent({
       display: flex;
       flex-direction: column;
       align-items: center;
-
-
-      &:nth-of-type(1) {}
 
       &:nth-of-type(2) {
         position: absolute;
@@ -153,10 +138,11 @@ export default defineComponent({
     z-index: 10;
 
     .blur {
-      background: url('/public/images/Grain-Texture-op-02.png');
+      background: url('/public/images/grain-horizontal.png');
       background-blend-mode: multiply;
       -webkit-backdrop-filter: blur(40px);
-      backdrop-filter: blur(40px);
+      backdrop-filter: blur(50px);
+      background-size: cover;
       width: 100%;
       height: 100%;
       position: absolute;
@@ -193,44 +179,36 @@ export default defineComponent({
 
   }
 
-  #estudio-session {
+  #see-more-works {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: auto !important;
-    position: relative;
-    overflow: hidden;
+    align-items: center;
 
-
-
-    .estudio-lb {
-      z-index: -3;
-      position: absolute;
-      object-fit: cover;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 220px !important;
-    }
-
-    h4 {
-      margin-bottom: 30px;
-    }
-
-    h6 {
-      color: var(--branco) !important;
-    }
-
-    p {
-      max-width: 700px;
+    a {
+      max-width: clamp(300px, 70vw, 1000px);
       margin: 0 auto;
-      font-size: clamp(13px, 2.5vw, 17px);
     }
+  }
 
-    .estudio-content {
-      &:nth-of-type(1) {
-        padding-bottom: 25vh;
+  @media (max-width:650px) {
+
+    .intro-banner-content,
+    #see-more-works {
+      h2 {
+        font-size: 72px;
       }
+
+      p {
+        max-width: 280px !important;
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+.pt-see-more-works {
+  @media (max-width:650px) {
+    h2 {
+      font-size: 42px !important;
     }
   }
 }

@@ -22,14 +22,12 @@
                                     :placeholder="$t('contact.input5PH')"></textarea>
                                 <a class="heading-uppercase" @click.prevent="sendEmail">
                                     {{ $t('contact.send') }}
-                                    <span></span>
                                 </a>
                             </form>
                         </div>
                     </div>
                     <div class="langs" id="agradecimento" v-else>
-                        <h3>{{ $t('contact.thankyou') }}</h3>
-                        <p>{{ $t('contact.thankyouSub') }}</p>
+                        <h2>{{ $t('contact.thankyou') }}</h2>
                     </div>
                 </div>
             </div>
@@ -94,7 +92,7 @@ export default {
     sendEmail() {
 
         if (!this.validateForm()) return;
-
+        
         emailjs
             .sendForm('service_t05vohy', 'template_01uwlfk', this.$refs.form, {
                 publicKey: 'PZZ1JqgNe-zgEggnJ',
@@ -150,7 +148,7 @@ export default {
 <style lang="scss">
 #contact {
     background-color: var(--rose);
-    color: var(--marrom-escuro);
+    color: var(--preto);
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -188,15 +186,15 @@ export default {
                 }
 
                 a {
-                    color: var(--marrom-escuro);
+                    color: var(--preto);
                     transition: 0.5s;
                     display: inline-flex;
                     justify-content: center;
                     flex-direction: column;
-                    margin-top: 40px;
+                    margin-top: 20px;
                     align-items: center;
                     width: fit-content;
-                    margin-left: auto;
+
                     cursor: pointer;
 
                     &:hover {
@@ -222,7 +220,7 @@ export default {
                     border: 0;
                     resize: none;
                     background-color: transparent;
-                    border-bottom: 1px solid var(--marrom-escuro);
+                    border-bottom: 1px solid var(--marrom-claro);
                     color: var(--marrom-escuro) !important;
                     caret-color: var(--marrom-escuro);
                     font-size: clamp(13px, 2vw, 14px);
@@ -256,22 +254,13 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-
-        p {
-            padding-top: 30px;
-            max-width:400px;
-        }
+        font-style: italic;
 
         @media(max-width: 700px) {
             padding: 20px;
 
             h2 {
-                font-size: 44px;
-            }
-
-            p {
-                min-width: 250px;
-                padding-top: 15px;
+                min-width: 320px;
             }
         }
     }
@@ -298,6 +287,7 @@ export default {
 
                 h4 {
                     margin-bottom: 30px;
+                    text-align: center;
                 }
 
                 label {
@@ -311,7 +301,8 @@ export default {
 
                 input,
                 textarea {
-                    padding: 5px !important;
+                    padding: 10px 0 !important;
+                    margin-bottom: 10px;
                     font-size: 12px !important;
                 }
             }

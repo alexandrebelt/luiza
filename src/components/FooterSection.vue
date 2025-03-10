@@ -3,16 +3,15 @@
         <div>
 
         </div>
-        <div id="cta-block1">
-            <h3 class="langs" v-html="$t('footer.heading')"
-                :style="{ maxWidth: $i18n.locale === 'pt' ? '950px' : '900px' }">
+        <div id="cta-block1" class="limit">
+            <router-link class="links" to="/contact">
+                <h2 class="langs" v-html="$t('footer.heading')">
 
-            </h3>
-            <router-link to="/contact">
-                <h6 class="heading-uppercase langs">
+                </h2>
+                <!--  <h6 class="heading-uppercase langs">
                     {{ $t('footer.sub1') }}
                 </h6>
-                <span></span>
+                <span></span> -->
             </router-link>
         </div>
         <div id="footer">
@@ -28,7 +27,7 @@
                 </a>
             </div>
             <div id="credits" class="footer-col">
-                <h6>© 2024 Luiza Bola Design</h6>
+                <h6>© 2025 Luiza Bola Design</h6>
             </div>
         </div>
     </section>
@@ -151,13 +150,14 @@ export default {
         }
     }
 
-    h3 {
+    h2 {
         font-family: var(--neue);
-        max-width: 929px;
         font-weight: 300 !important;
+        max-width: 1000px !important;
+        margin: 0 auto;
 
 
-        span {
+        i {
             font-family: var(--ivy);
             font-weight: 200 !important;
         }
@@ -169,18 +169,20 @@ export default {
         position: absolute;
         width: 100%;
         max-width: 1200px;
-        bottom: 0px;
+        bottom: 40px;
         left: 50%;
         transform: translatex(-50%);
+        color: var(--marrom-claro);
 
         .footer-col {
             display: flex;
             gap: 30px;
-            padding: 30px 30px 50px;
+            padding: 30px 30px 5px;
         }
 
         h6 {
             align-content: end;
+            color: var(--marrom-claro) !important;
         }
 
         #social {
@@ -189,6 +191,7 @@ export default {
 
                 &:hover {
                     opacity: .5;
+
                 }
             }
         }
@@ -197,8 +200,20 @@ export default {
 }
 
 @media(max-width:700px) {
+    #cta {
+
+        #cta-block1 {
+            padding: 0;
+            h2{
+                font-size: 50px;
+                width: 260px;
+            }
+        }
+    }
+
     #footer {
         flex-direction: column;
+
 
         .footer-col {
             width: 100%;
@@ -207,7 +222,17 @@ export default {
             text-align: center;
 
             h6 {
-                font-size: 13px;
+                font-size: 15px;
+            }
+        }
+
+        #social {
+            flex-direction: column;
+            row-gap: 10px !important;
+            margin-bottom: 10px;
+
+            a {
+                margin: 0;
             }
         }
     }
