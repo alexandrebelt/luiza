@@ -49,17 +49,19 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
   scrollBehavior(to) {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     ScrollTrigger.refresh(true);
 
-    if(to.hash){
-      return{
+    if (to.hash) {
+      return {
         el: to.hash,
-        behavior: "smooth"
+        top: 0
       }
     }
   }
 })
-
+router.afterEach(() => {
+  window.scrollTo(0, 0);
+});
 
 export default router

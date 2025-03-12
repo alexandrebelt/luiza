@@ -26,11 +26,18 @@
                 </div>
             </div>
         </div>
+        <div class="project-galery">
+            <div class="single-image-galery" v-for="file in project.images" :key="file">
+                <img v-if="!file.endsWith('.mp4')" :src="project.folder + '/' + file" />
+                <video v-else :src="project.folder + '/' + file" autoplay loop></video>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import projectsData from '@/assets/singleProjs.json'
+import gsap from 'gsap';
 export default {
     data() {
         return {
@@ -45,9 +52,22 @@ export default {
     },
     beforeMount(){
         window.removeEventListener('resize', this.updateWidth);
+        
     },
     mounted(){
         window.addEventListener('resize', this.updateWidth);
+        gsap.set('#single-project', {
+            filter:'blur(30px)',
+            opacity: 0
+        })
+        setTimeout(() => {
+            window.scrollTo(0, 0)
+            gsap.to('#single-project', {
+                filter:'blur(0px)',
+            opacity: 1,
+            duration: 1
+        })
+        }, 1000);
     },
     watch: {
         '$route.params.projectTitle': 'loadProjectData',  // Recarrega os dados quando a URL mudar
@@ -76,6 +96,7 @@ export default {
 <style lang="scss">
 #single-project {
     .single-project-cover {
+    display: flex;
         img {
             width: 100%;
             height: 100vh;
@@ -138,6 +159,15 @@ export default {
 }
         h4 {
             margin-bottom: 20px;
+        }
+    }
+
+    .project-galery{
+        .single-image-galery{
+            display: flex;
+            img, video{
+                width: 100%;
+            }
         }
     }
 }

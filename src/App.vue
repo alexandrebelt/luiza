@@ -358,11 +358,11 @@ h6 {
 }
 
 .scale-up {
-  scale: 1 !important;
+  scale: .8 !important;
   background-color: var(--marrom-claro);
   mix-blend-mode: normal;
   font-size: 15px;
-  transform: translate(-50%, -50%);
+  transform: translate(-65%, -65%);
 
   .cross {
     color: var(--branco)

@@ -100,6 +100,8 @@ export default function initGsap() {
                     scrub: 1
                 }
             })
+            
+            
 
         }, 400);
 

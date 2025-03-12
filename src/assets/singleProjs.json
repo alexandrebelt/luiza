@@ -3,11 +3,8 @@
         {
             "cover": "/images/projects/Arcturo-4.jpg",
             "title": "Arcturo",
-            "images": [
-                {
-                    "image": "#"
-                }
-            ],
+            "folder":"/images/projects/Arcturo",
+            "images": ["1.mp4", "2.png", "3.png", "4.mp4", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -32,11 +29,8 @@
         {
             "cover": "/images/projects/Projetos–BrilloCoffee.png",
             "title": "Brillo Coffee",
-            "images": [
-                {
-                    "image": "#"
-                }
-            ],
+            "folder":"/images/projects/Brillo",
+            "images": ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png", "08.png", "09.png", "11.png", "12.png", "13.png", "14-1.png", "14.png", "15.png"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -59,11 +53,8 @@
         {
             "cover": "/images/projects/Horya-3.jpg",
             "title": "Horya",
-            "images": [
-                {
-                    "image": "#"
-                }
-            ],
+            "folder":"/images/projects/Horya",
+            "images": ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -86,11 +77,8 @@
         {
             "cover": "/images/projects/Projetos – Ami+.png",
             "title": "Ami+",
-            "images": [
-                {
-                    "image": "#"
-                }
-            ],
+            "folder":"/images/projects/Ami+",
+            "images": ["01.png", "02.png", "03.png", "04.png", "05.jpg", "06.png"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -113,11 +101,8 @@
         {
             "cover": "/images/projects/Projetos – ÍON-s.png",
             "title": "ÍON-S",
-            "images": [
-                {
-                    "image": "#"
-                }
-            ],
+            "folder":"/images/projects/ion-s",
+            "images": ["01.png", "02.png", "03.png", "03(1).mp4", "04.png", "05.png", "06.png", "07.png", "08.png"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -138,13 +123,10 @@
             }
         },
         {
-            "cover": "#",
+            "cover": "/images/projects/Aquino/Capa.png",
             "title": "Aquino",
-            "images": [
-                {
-                    "image": "#"
-                }
-            ],
+            "folder":"/images/projects/Aquino",
+            "images": ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png", "08.png", "09.png"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -165,13 +147,10 @@
             }
         },
         {
-            "cover": "#",
+            "cover": "/images/projects/jts/Capa.png",
             "title": "JTS Build & Design",
-            "images": [
-                {
-                    "image": "#"
-                }
-            ],
+            "folder":"/images/projects/jts",
+            "images": ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"],
             "lang": {
                 "PT": {
                     "tags": [

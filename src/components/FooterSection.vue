@@ -16,14 +16,14 @@
         </div>
         <div id="footer">
             <div id="social" class="footer-col">
-                <a href="#">
+                <a href="https://www.instagram.com/luizabola.co/" target="_blank">
                     <h6>Instagram</h6>
                 </a>
-                <a href="#">
+                <a href="https://www.behance.net/luizabola" target="_blank">
                     <h6>Behance</h6>
                 </a>
-                <a href="#">
-                    <h6>Threads</h6>
+                <a href="https://www.linkedin.com/in/luiza-bola-a34288139/" target="_blank">
+                    <h6>LinkedIn</h6>
                 </a>
             </div>
             <div id="credits" class="footer-col">

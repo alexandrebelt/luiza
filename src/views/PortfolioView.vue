@@ -17,6 +17,7 @@
                         <div class="project-content">
                             <router-link :to="{ name: 'project', params: { projectTitle: proj.title } }">
                                 <div class="blur-port">
+                                    <div class="grainy"></div>
                                 </div>
                                 <img class="project-image" :src="proj.cover">
                             </router-link>
@@ -49,21 +50,23 @@ export default {
 
     mounted() {
         initGsap()
-        
+
         let projectsHover = document.querySelectorAll('.project-content');
 
-        projectsHover.forEach((hover)=>{
+        projectsHover.forEach((hover) => {
             let blur = hover.querySelector('.blur-port');
 
-            hover.addEventListener('mouseover', ()=>{
+            hover.addEventListener('mouseover', () => {
                 gsap.to(blur, {
-                    x: "-100%",
+
+                    clipPath: "inset(0 100% 0 0)",
                     duration: 1,
                 })
             })
-            hover.addEventListener('mouseout', ()=>{
+            hover.addEventListener('mouseout', () => {
                 gsap.to(blur, {
-                    x: 0,
+
+                    clipPath: "inset(0 0% 0 0)",
                     duration: 1,
                 })
             })
@@ -75,12 +78,14 @@ export default {
 
 <style lang="scss">
 #portfolio {
-    .container{
+    .container {
         padding: 120px 0 60px;
+
         @media (max-width:800px) {
             padding-bottom: 30px;
         }
     }
+
     .langs {
         text-align: center;
     }
@@ -107,37 +112,48 @@ export default {
                     aspect-ratio: 3.1/4.6;
                     width: 25vw;
                     overflow: hidden;
-                    
-                    
+
+
                     .project-content {
                         display: flex;
                         aspect-ratio: 3.1/4.6;
                         overflow: hidden;
                         position: relative;
-                        
+
                         .blur-port {
-                            background: url('/public/images/grain.png');
                             background-blend-mode: multiply;
                             background-repeat: no-repeat;
-                            background-position: center;
+                            background-position: left;
                             background-size: cover;
                             -webkit-backdrop-filter: blur(40px);
                             backdrop-filter: blur(40px);
-                            width: 130%;
+                            width: 100%;
                             height: 100%;
                             position: absolute;
-                            z-index: 100;
-                            
+                            z-index: 10;
+                            pointer-events: none;
+
+                            .grainy {
+                                background: url('/public/images/grain.jpg') center/cover;
+                                content: "";
+                                position: absolute;
+                                inset: 0;
+                                mix-blend-mode: overlay;
+                                opacity: .3;
+                                filter: saturate(96%) contrast(291%) brightness(178%) opacity(54%);
+                                pointer-events: none;
+                            }
+
                         }
-                        
+
                         .project-grain-bg {
                             max-width: 100%;
                             min-height: 100%;
                             object-fit: cover;
                         }
-                        
-                        
-                        
+
+
+
                         img {
                             position: absolute;
                             left: 50%;
@@ -152,20 +168,26 @@ export default {
                         }
                     }
                 }
+
                 @media(max-width: 800px) {
                     gap: 0;
-                    .project {width: 100vw;
-                    height: 100vh;
-                    aspect-ratio:unset;
-                    object-fit: cover;
-                    .project-content {
-                        aspect-ratio: unset;
+
+                    .project {
+                        width: 100vw;
                         height: 100vh;
-                        img{
-                            height: 100%;
-                            width: 100%;
+                        aspect-ratio: unset;
+                        object-fit: cover;
+
+                        .project-content {
+                            aspect-ratio: unset;
+                            height: 100vh;
+
+                            img {
+                                height: 100%;
+                                width: 100%;
+                            }
                         }
-                    }}
+                    }
                 }
             }
         }

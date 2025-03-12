@@ -14,6 +14,7 @@
     <section id="projects">
       <div class="project" v-for="(proj, index) in tradsProjs" v-bind:key="index">
         <div class="blur">
+          <div class="grainy"></div>
         </div>
         <router-link :to="{ name: 'project', params: { projectTitle: proj.title } }">
           <img :src="proj.cover" class="links">
@@ -29,6 +30,7 @@
       <router-link to="/portfolio">
         <div class="langs links" :class="{ 'pt-see-more-works': $i18n.locale === 'PT' }"
           v-html="$t('home.section3.heading')"></div>
+        <span class="underline-effect"></span>
       </router-link>
     </section>
 
@@ -50,6 +52,24 @@ gsap.registerPlugin(ScrollTrigger);
 export default defineComponent({
   mounted() {
     initGsap()
+
+    let underSeeMoreWork = document.querySelector('#see-more-works a');
+
+    underSeeMoreWork.addEventListener('mouseover', ()=>{
+      gsap.to('.underline-effect', {
+        width:"90%",
+        ease:'power4,inOut',
+        duration: 1
+      })
+    })
+    underSeeMoreWork.addEventListener('mouseleave', ()=>{
+      gsap.to('.underline-effect', {
+        width:"0%",
+        ease:'power4,inOut',
+        duration: 1
+      })
+    })
+
   },
   components: {
     FooterSection
@@ -75,6 +95,7 @@ export default defineComponent({
       console.log(error)
     })
   },
+  
 
 
 })
@@ -138,7 +159,6 @@ export default defineComponent({
     z-index: 10;
 
     .blur {
-      background: url('/public/images/grain-horizontal.png');
       background-blend-mode: multiply;
       -webkit-backdrop-filter: blur(40px);
       backdrop-filter: blur(50px);
@@ -147,6 +167,17 @@ export default defineComponent({
       height: 100%;
       position: absolute;
       z-index: 3;
+
+      .grainy {
+        background: url('/public/images/grain-horizontal.png') center/cover;
+        content: "";
+        position: absolute;
+        inset: 0;
+        mix-blend-mode: overlay;
+        opacity: .3;
+        filter: saturate(200%) contrast(291%) brightness(178%) opacity(54%);
+        pointer-events: none;
+      }
 
     }
 
@@ -186,6 +217,16 @@ export default defineComponent({
     a {
       max-width: clamp(300px, 70vw, 1000px);
       margin: 0 auto;
+    }
+
+    .underline-effect {
+      height: 11px;
+      width: 0%;
+      display: flex;
+      background: var(--branco);
+      margin: 0 auto;
+      margin-top: 0px;
+      margin-top: 30px;
     }
   }
 
