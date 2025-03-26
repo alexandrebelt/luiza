@@ -36,7 +36,7 @@
         }
     },
     "contact": {
-        "heading": "<h4><span>Let's bring your</span><br><i>vision</i> <span>to</span> <i>life?</i></h4>",
+        "heading": "<h4><span>Let's bring your</span> <i>vision</i> <span>to</span> <i>life?</i></h4>",
         "input1": "name",
         "input2": "your brand name",
         "input3": "E-mail",
@@ -52,6 +52,9 @@
     "portfolio":{
         "heading": "Selected Works",
         "sub": "Form, soul & stories"
+    },
+    "single":{
+        "backPort":"Back to portfolio"
     },
     "footer": {
         "heading": "Let's  bring your <i>vision</i> to <i>life?</i>",

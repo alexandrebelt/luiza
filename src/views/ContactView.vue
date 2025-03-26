@@ -163,7 +163,7 @@ export default {
             flex-basis: 50%;
 
             h4 {
-                font-size: clamp(28px, 5.5vw, 63px);
+                font-size: clamp(40px, 5.5vw, 63px) !important;
                 color: var(--preto);
             }
 
@@ -281,6 +281,9 @@ export default {
                 h4 {
                     margin-bottom: 30px;
                     text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                    max-width: 220px;
                 }
 
                 label {

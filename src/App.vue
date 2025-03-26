@@ -49,11 +49,11 @@ export default defineComponent({
         const loading = document.querySelector('.loading-content');
         loading.classList.add('slide-up')
 
-      }, 200);
+      }, 900);
       setTimeout(() => {
         this.isLoading = false
 
-      }, 200);
+      }, 1000 /*alterar para carregar rapido*/);
     }
 
 
@@ -138,7 +138,7 @@ export default defineComponent({
   --h2: clamp(42px, 10vw, 128px);
   --h3: clamp(35px, 10vw, 96px);
   --h4: clamp(30px, 5.7vw, 64px);
-  --h5: clamp(28px, 4vw, 48px);
+  --h5: clamp(40px, 4vw, 48px);
   --h6: 20px;
 
 
@@ -151,28 +151,9 @@ export default defineComponent({
 }
 
 html {
-  ::-webkit-scrollbar {
-    width: 5px;
-    /* Largura da barra vertical */
-    height: 12px;
-    /* Altura da barra horizontal */
-  }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, .3);
-    /* Cor do polegar */
-    border-radius: 6px;
-    /* Bordas arredondadas */
-  }
+  scrollbar-width:thin;
 
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 6px;
-    /* Opcional: bordas arredondadas */
-  }
-
-  scrollbar-color: rgba(255, 255, 255, .3);
-  scrollbar-width: thin
 }
 
 
@@ -235,6 +216,7 @@ body {
 .slide-up {
   opacity: 0;
   transform: translatey(-150vw);
+  transition: 1s;
 }
 
 body {

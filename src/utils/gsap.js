@@ -17,7 +17,7 @@ export default function initGsap() {
     })
     setTimeout(() => {
         gsap.to('.blur', {
-            opacity:1
+
         })
     }, 500);
     //INICIO

@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="home" data-simplebar>
     <section id="intro-banner" class="langs">
       <div class="intro-banner-content limit">
         <div v-html="$t('home.section1.heading1')"></div>
@@ -16,7 +16,7 @@
         <div class="blur">
           <div class="grainy"></div>
         </div>
-        <router-link :to="{ name: 'project', params: { projectTitle: proj.title } }">
+        <router-link :to="{ name: 'project', params: { projectSlug: proj.slug } }">
           <img :src="proj.cover" class="links">
           <div class="text-content limit-content links">
             <h1>{{ proj.title }}</h1>
@@ -47,6 +47,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import axios from 'axios';
 import initGsap from '../utils/gsap'
 import data from '@/assets/singleProjs.json'
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 export default defineComponent({
@@ -121,12 +123,16 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media (max-width:650px) {
+      justify-content: space-evenly;
+      }
 
     .intro-banner-content {
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
+      
 
       &:nth-of-type(2) {
         position: absolute;
@@ -134,7 +140,11 @@ export default defineComponent({
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
-
+        @media (max-width:650px) {
+        position: relative;
+        margin-top: -50px;
+        bottom: unset;
+      }
         p {
           font-family: var(--eb) !important;
           font-weight: 200;
@@ -159,23 +169,25 @@ export default defineComponent({
     z-index: 10;
 
     .blur {
+      opacity: 1 !important;
       background-blend-mode: multiply;
       -webkit-backdrop-filter: blur(40px);
-      backdrop-filter: blur(50px);
+      backdrop-filter: blur(40px);
       background-size: cover;
-      width: 100%;
+      width: 100vw;
+      object-fit: cover;
       height: 100%;
       position: absolute;
       z-index: 3;
 
       .grainy {
-        background: url('/public/images/grain-horizontal.png') center/cover;
+        background: url('/public/images/grain-horizontal.jpg') center/cover;
         content: "";
         position: absolute;
         inset: 0;
         mix-blend-mode: overlay;
         opacity: .3;
-        filter: saturate(200%) contrast(291%) brightness(178%) opacity(54%);
+        filter: saturate(150%) contrast(200%) brightness(178%) opacity(54%);
         pointer-events: none;
       }
 
@@ -236,6 +248,7 @@ export default defineComponent({
     #see-more-works {
       h2 {
         font-size: 72px;
+    max-width: 300px;
       }
 
       p {

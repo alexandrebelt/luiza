@@ -130,6 +130,9 @@ export default {
         flex-direction: column;
         margin-top: 40px;
         align-items: center;
+        @media(max-width:650px){
+            margin-top: unset !important;
+        }
 
         h6 {
             margin-bottom: 5px;
@@ -205,8 +208,8 @@ export default {
         #cta-block1 {
             padding: 0;
             h2{
-                font-size: 50px;
-                width: 260px;
+                font-size: 72px;
+                width: 280px;
             }
         }
     }

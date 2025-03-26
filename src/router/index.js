@@ -38,7 +38,7 @@ const routes = [
     component: PortfolioView
   },
   {
-    path: '/:projectTitle',
+    path: '/:projectSlug',
     name: 'project',
     component: SingleProject,
     props: true

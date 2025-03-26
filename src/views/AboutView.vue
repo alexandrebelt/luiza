@@ -99,6 +99,10 @@ export default {
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
+        @media (max-width: 650px) {
+          position: relative;
+          bottom: unset;
+      }
       }
     }
 

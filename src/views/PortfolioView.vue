@@ -15,11 +15,11 @@
                 <div class="projects">
                     <div class="project" v-for="(proj, index) in projs" :key="index">
                         <div class="project-content">
-                            <router-link :to="{ name: 'project', params: { projectTitle: proj.title } }">
+                            <router-link :to="{ name: 'project', params: { projectSlug: proj.slug } }">
                                 <div class="blur-port">
                                     <div class="grainy"></div>
                                 </div>
-                                <img class="project-image" :src="proj.cover">
+                                <img class="project-image links" :src="proj.cover">
                             </router-link>
                         </div>
                     </div>
@@ -140,8 +140,10 @@ export default {
                                 inset: 0;
                                 mix-blend-mode: overlay;
                                 opacity: .3;
-                                filter: saturate(96%) contrast(291%) brightness(178%) opacity(54%);
+                                -webkit-filter: saturate(100%) contrast(200%) brightness(178%) opacity(54%);
+                                filter:saturate(100%) contrast(200%) brightness(178%)  opacity(54%);
                                 pointer-events: none;
+                                width: 45vw;
                             }
 
                         }
@@ -169,7 +171,7 @@ export default {
                     }
                 }
 
-                @media(max-width: 800px) {
+                @media(max-width: 700px) {
                     gap: 0;
 
                     .project {
@@ -186,6 +188,17 @@ export default {
                                 height: 100%;
                                 width: 100%;
                             }
+
+                           .blur-port{
+                            display: none;
+                               width: 150vw !important ;
+                               height: 150vw !important ;
+                               background-position: center;
+                            .grainy{
+                                width: 150vw !important ;
+                                height: 150vw !important ;
+                            }
+                           }
                         }
                     }
                 }

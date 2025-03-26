@@ -53,6 +53,9 @@
         "heading": "Trabalhos Selecionados",
         "sub": "Forma, alma & histórias"
     },
+    "single":{
+        "backPort":"Retornar ao portfólio"
+    },
     "footer": {
         "heading": "Vamos trazer sua <i>visão </i>para a <i>vida?</i>",
         "sub1": "Solicite um orçamento"
