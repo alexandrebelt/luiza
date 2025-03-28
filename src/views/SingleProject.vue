@@ -35,7 +35,7 @@
         <div class="footer-return">
             <router-link to="/portfolio">
                 <div class="langs button-return">
-                    <span>{{$t('single.backPort')}}</span>
+                    <span>{{ $t('single.backPort') }}</span>
                 </div>
             </router-link>
         </div>
@@ -89,25 +89,24 @@ export default {
             })
         }, 1000);
 
-        setTimeout(()=>{
-    gsap.set('.footer-return',{
-        y:200,
-    })
-    gsap.to('.footer-return', {
-    y: 0,
-    duration:.5,
-    delay: 1,
-    skewX: -30,
-    skewY: -30,
-    scrollTrigger:{
-        trigger:'body',
-        start:'95% 80% ',
-        end:'bottom bottom',
-        scrub:1 ,
-        markers:true
-    }
-})
-},2000)
+        setTimeout(() => {
+            gsap.set('.footer-return', {
+                scale: 0
+            })
+            gsap.to('.footer-return', {
+                scale: 1,
+                duration: .5,
+                delay: 2,
+                ease: "power4.inOut",
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: '95% 95% ',
+                    end: 'bottom bottom',
+                    scrub: 2,
+                }
+            })
+
+        }, 700)
 
     },
     watch: {
@@ -137,6 +136,7 @@ export default {
 <style lang="scss">
 #single-project {
     overflow-y: hidden;
+
     .single-project-cover {
         display: flex;
 

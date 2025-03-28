@@ -238,6 +238,8 @@ export default function initGsap() {
             })
         }, 1000);
 
+
+
     }
 
 }

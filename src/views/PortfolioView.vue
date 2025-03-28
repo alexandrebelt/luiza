@@ -140,10 +140,10 @@ export default {
                                 inset: 0;
                                 mix-blend-mode: overlay;
                                 opacity: .3;
-                                -webkit-filter: saturate(100%) contrast(200%) brightness(178%) opacity(54%);
-                                filter:saturate(100%) contrast(200%) brightness(178%)  opacity(54%);
+                                -webkit-filter: saturate(0%) contrast(150%) brightness(100%) opacity(54%);
+                                filter:saturate(0%) contrast(150%) brightness(100%) opacity(54%);
                                 pointer-events: none;
-                                width: 45vw;
+                                width: 30vw;
                             }
 
                         }

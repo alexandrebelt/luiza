@@ -165,6 +165,7 @@ export default {
             h4 {
                 font-size: clamp(40px, 5.5vw, 63px) !important;
                 color: var(--preto);
+                max-width: clamp(300px, 50vw, 500px);
             }
 
             .form {
