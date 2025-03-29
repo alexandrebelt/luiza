@@ -2,6 +2,7 @@
     "projs": [
         {
             "cover": "/images/projects/Arcturo-4.jpg",
+
             "title": "Arcturo",
             "slug": "arcturo",
             "folder":"/images/projects/Arcturo",
@@ -29,6 +30,7 @@
         },
         {
             "cover": "/images/projects/Projetos–BrilloCoffee.png",
+            "grain": "/images/projects/Grains/Brillo-Blur.png",
             "title": "Brillo Coffee",
             "slug": "brillo-caffee",
             "folder":"/images/projects/Brillo",
@@ -79,6 +81,7 @@
         },
         {
             "cover": "/images/projects/Projetos – Ami+.png",
+            "grain": "/images/projects/Grains/Ami-Blur.png",
             "title": "Ami+",
             "slug": "ami+",
             "folder":"/images/projects/Ami+",
@@ -104,6 +107,7 @@
         },
         {
             "cover": "/images/projects/Projetos – ÍON-s.png",
+            "grain": "/images/projects/Grains/Ions-Blur.png",
             "title": "ÍON-S",
             "slug": "ion-s",
             "folder":"/images/projects/ion-s",
@@ -129,6 +133,7 @@
         },
         {
             "cover": "/images/projects/Aquino/Capa.png",
+            "grain": "/images/projects/Grains/Aquino-Blur.png",
             "title": "Aquino",
             "slug": "aquino",
             "folder":"/images/projects/Aquino",

@@ -17,7 +17,8 @@
                         <div class="project-content">
                             <router-link :to="{ name: 'project', params: { projectSlug: proj.slug } }">
                                 <div class="blur-port">
-                                    <div class="grainy"></div>
+                                    <div class="grainy" :style="{ background: `url(${proj.grain}) center/cover` }"></div>
+
                                 </div>
                                 <img class="project-image links" :src="proj.cover">
                             </router-link>
@@ -125,8 +126,6 @@ export default {
                             background-repeat: no-repeat;
                             background-position: left;
                             background-size: cover;
-                            -webkit-backdrop-filter: blur(40px);
-                            backdrop-filter: blur(40px);
                             width: 100%;
                             height: 100%;
                             position: absolute;
@@ -134,16 +133,15 @@ export default {
                             pointer-events: none;
 
                             .grainy {
-                                background: url('/public/images/grain.jpg') center/cover;
+                                
                                 content: "";
                                 position: absolute;
+                                aspect-ratio: 2/3;
+                                height: auto;
+                                min-width: 110%;
                                 inset: 0;
-                                mix-blend-mode: overlay;
-                                opacity: .3;
-                                -webkit-filter: saturate(0%) contrast(150%) brightness(100%) opacity(54%);
-                                filter:saturate(0%) contrast(150%) brightness(100%) opacity(54%);
                                 pointer-events: none;
-                                width: 30vw;
+
                             }
 
                         }
@@ -189,16 +187,17 @@ export default {
                                 width: 100%;
                             }
 
-                           .blur-port{
-                            display: none;
-                               width: 150vw !important ;
-                               height: 150vw !important ;
-                               background-position: center;
-                            .grainy{
-                                width: 150vw !important ;
-                                height: 150vw !important ;
+                            .blur-port {
+                                display: none;
+                                width: 150vw !important;
+                                height: 150vw !important;
+                                background-position: center;
+
+                                .grainy {
+                                    width: 150vw !important;
+                                    height: 150vw !important;
+                                }
                             }
-                           }
                         }
                     }
                 }

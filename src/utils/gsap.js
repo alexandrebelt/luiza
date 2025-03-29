@@ -62,7 +62,8 @@ export default function initGsap() {
                     filter: "blur(0px)"
                 })
                 gsap.set('.blur', {
-                    x: 0
+                    clipPath: "inset(0 0% 0 0)",
+                    duration: 1,
                 })
 
                 gsap.to(proj.querySelector('.text-content'), {
@@ -78,7 +79,8 @@ export default function initGsap() {
 
 
                 gsap.to(proj.querySelector('.blur'), {
-                    x: "-100vw",
+                    clipPath: "inset(0 100% 0 0)",
+                    duration: 1,
                     scrollTrigger: {
                         trigger: proj,
                         start: 'center center',
