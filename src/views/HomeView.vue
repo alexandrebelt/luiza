@@ -14,7 +14,7 @@
     <section id="projects">
       <div class="project" v-for="(proj, index) in tradsProjs" v-bind:key="index">
         <div class="blur">
-          <div class="grainy" :style="{ background: `url(${proj.grain}) center/cover` }"></div>
+          <img :src="proj.grain">
         </div>
         <router-link :to="{ name: 'project', params: { projectSlug: proj.slug } }">
           <img :src="proj.cover" class="links">
@@ -169,24 +169,12 @@ export default defineComponent({
     z-index: 10;
 
     .blur {
-      opacity: 1 !important;
-      background-blend-mode: multiply;
-      -webkit-backdrop-filter: blur(40px);
-      backdrop-filter: blur(40px);
       background-size: cover;
       width: 100vw;
       object-fit: cover;
       height: 100%;
       position: absolute;
       z-index: 3;
-
-      .grainy {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-      }
-
     }
 
     .project {

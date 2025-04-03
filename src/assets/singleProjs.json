@@ -1,8 +1,8 @@
 {
     "projs": [
         {
-            "cover": "/images/projects/Arcturo-4.jpg",
-
+            "cover": "/images/projects/Arcturo/Capa.png",
+            "grain": "/images/projects/Grains/Arcturo-Blur-2.png",
             "title": "Arcturo",
             "slug": "arcturo",
             "folder":"/images/projects/Arcturo",
@@ -55,7 +55,8 @@
             }
         },
         {
-            "cover": "/images/projects/Horya-3.jpg",
+            "cover": "/images/projects/Horya/Capa.png",
+            "grain": "/images/projects/Grains/Horya-Blur.png",
             "title": "Horya",
             "slug": "horya",
             "folder":"/images/projects/Horya",
@@ -106,7 +107,7 @@
             }
         },
         {
-            "cover": "/images/projects/Projetos – ÍON-s.png",
+            "cover": "/images/projects/ion-s/Capa.png",
             "grain": "/images/projects/Grains/Ions-Blur.png",
             "title": "ÍON-S",
             "slug": "ion-s",
@@ -159,6 +160,7 @@
         },
         {
             "cover": "/images/projects/jts/Capa.png",
+            "grain": "/images/projects/Grains/Jts-Blur.png",
             "title": "JTS Build & Design",
             "slug": "jts-build-&-design",
             "folder":"/images/projects/jts",

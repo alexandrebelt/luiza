@@ -12,9 +12,7 @@ export default function initGsap() {
     setTimeout(() => {
         document.querySelector(".nav-buttons").classList.remove("on-footer");
     }, 500);
-    gsap.set('.blur', {
-        opacity:0
-    })
+   
     setTimeout(() => {
         gsap.to('.blur', {
 

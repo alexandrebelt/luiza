@@ -17,8 +17,7 @@
                         <div class="project-content">
                             <router-link :to="{ name: 'project', params: { projectSlug: proj.slug } }">
                                 <div class="blur-port">
-                                    <div class="grainy" :style="{ background: `url(${proj.grain}) center/cover` }"></div>
-
+                                    <img :src="proj.grain" />
                                 </div>
                                 <img class="project-image links" :src="proj.cover">
                             </router-link>
@@ -124,7 +123,7 @@ export default {
                         .blur-port {
                             background-blend-mode: multiply;
                             background-repeat: no-repeat;
-                            background-position: left;
+                            background-position: center;
                             background-size: cover;
                             width: 100%;
                             height: 100%;
@@ -133,7 +132,6 @@ export default {
                             pointer-events: none;
 
                             .grainy {
-                                
                                 content: "";
                                 position: absolute;
                                 aspect-ratio: 2/3;
