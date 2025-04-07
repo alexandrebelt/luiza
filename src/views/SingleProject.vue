@@ -32,13 +32,13 @@
                 <video v-else :src="project.folder + '/' + file" autoplay loop></video>
             </div>
         </div>
-        <div class="footer-return">
-            <router-link to="/portfolio">
-                <div class="langs button-return">
-                    <span>{{ $t('single.backPort') }}</span>
-                </div>
-            </router-link>
-        </div>
+    </div>
+    <div class="footer-return">
+        <router-link to="/portfolio">
+            <div class="langs button-return">
+                <span>◄</span>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -100,8 +100,8 @@ export default {
                 ease: "power4.inOut",
                 scrollTrigger: {
                     trigger: 'body',
-                    start: '95% 95% ',
-                    end: 'bottom bottom',
+                    start: '80% 80% ',
+                    end: '90% 90%',
                     scrub: 2,
                 }
             })
@@ -220,36 +220,37 @@ export default {
         }
     }
 
-    .footer-return {
-        position: fixed !important;
+}
+.footer-return {
+    position: fixed !important;
+    display: flex;
+    bottom: 0;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 30px;
+    justify-content: center;
+    mix-blend-mode: difference;
+    background-color: white;
+    border-radius: 100%;
+    padding: 20px;
+
+
+    .button-return {
+        font-size: 13px;
+        font-family: var(--neue);
+        height: 40px;
+        width: 40px;
+        text-align: center;
         display: flex;
-        bottom: 0;
-        overflow: hidden;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-bottom: 30px;
         justify-content: center;
+        align-items: center;
         mix-blend-mode: difference;
-        background-color: white;
-        border-radius: 100%;
-        padding: 20px;
 
-
-        .button-return {
-            font-size: 13px;
-            font-family: var(--neue);
-            height: 50px;
-            width: 50px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            mix-blend-mode: difference;
-
-            span {
-                mix-blend-mode: difference !important;
-                font-weight: 600;
-            }
+        span {
+            mix-blend-mode: difference !important;
+            font-weight: 600;
+            font-size: 20px;
         }
     }
 }

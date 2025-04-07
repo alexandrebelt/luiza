@@ -128,7 +128,7 @@ export default {
         display: inline-flex;
         justify-content: center;
         flex-direction: column;
-        margin-top: 40px;
+
         align-items: center;
         @media(max-width:650px){
             margin-top: unset !important;
@@ -158,6 +158,7 @@ export default {
         font-weight: 300 !important;
         max-width: 1000px !important;
         margin: 0 auto;
+        transform:translatey(-20px);
 
 
         i {
