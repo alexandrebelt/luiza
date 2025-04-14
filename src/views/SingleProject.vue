@@ -36,7 +36,7 @@
     <div class="footer-return">
         <router-link to="/portfolio">
             <div class="langs button-return">
-                <span>◄</span>
+                <img src="images/arrow_back_ios.svg"/>
             </div>
         </router-link>
     </div>

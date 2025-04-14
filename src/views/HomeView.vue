@@ -183,9 +183,11 @@ export default defineComponent({
       height: 100vh;
       align-items: end;
       overflow: hidden;
+      font-weight: 200;
 
 
       .text-content {
+        
         margin-bottom: 20vh;
         position: relative;
         z-index: 10;

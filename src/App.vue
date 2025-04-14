@@ -264,11 +264,14 @@ h3,
 h4,
 h5 {
   font-family: var(--ivy);
-  font-weight: 200;
+  font-weight: 300;
   margin: 0;
-
+i{
+  font-weight: 200;
+}
   span {
     font-family: var(--neue);
+    font-weight: 200;
   }
 }
 

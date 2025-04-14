@@ -163,6 +163,7 @@ export default {
       h5 {
         max-width: 842px;
         text-align: center;
+        
       }
 
       a {
@@ -226,6 +227,9 @@ export default {
 
     h5 {
       line-height: 1.5em;
+      span{
+          font-weight: 300 !important;
+        }
     }
   }
 
