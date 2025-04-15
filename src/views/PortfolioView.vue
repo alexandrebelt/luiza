@@ -100,6 +100,7 @@ export default {
         height: auto !important;
 
         .projects-wrap {
+            
             .projects {
                 display: flex;
                 flex-wrap: nowrap;

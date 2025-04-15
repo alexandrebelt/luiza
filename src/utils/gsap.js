@@ -29,6 +29,9 @@ export default function initGsap() {
             opacity: 0,
             filter: "blur(30px)"
         })
+        gsap.set('.blur', {
+            opacity: 0,
+        })
        /*  gsap.set('.intro-banner-content', {
             filter: 'blur(0)',
         }) */
@@ -75,7 +78,9 @@ export default function initGsap() {
                     }
                 })
 
-
+                gsap.to('.blur', {
+                    opacity: 1,
+                })
                 gsap.to(proj.querySelector('.blur'), {
                     clipPath: "inset(0 100% 0 0)",
                     duration: 1,

@@ -49,11 +49,11 @@ export default defineComponent({
         const loading = document.querySelector('.loading-content');
         loading.classList.add('slide-up')
 
-      }, 900);
+      }, 3500);
       setTimeout(() => {
         this.isLoading = false
 
-      }, 1000 /*alterar para carregar rapido*/);
+      }, 4000 /*alterar para carregar rapido*/);
     }
 
 
@@ -271,7 +271,7 @@ i{
 }
   span {
     font-family: var(--neue);
-    font-weight: 200;
+
   }
 }
 
