@@ -1,12 +1,12 @@
 {
     "projs": [
         {
-            "cover": "/images/projects/Arcturo/Capa.png",
-            "grain": "/images/projects/Grains/Arcturo-Blur-2.png",
+            "cover": "/images/projects/Arcturo/Capa.webp",
+            "grain": "/images/projects/Grains/Arcturo-Blur-2.webp",
             "title": "Arcturo",
             "slug": "arcturo",
             "folder":"/images/projects/Arcturo",
-            "images": ["1.mp4", "2.png", "3.png", "4.mp4", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png"],
+            "images": ["1.mp4", "2.webp", "3.webp", "4.mp4", "5.webp", "6.webp", "7.webp", "8.webp", "9.webp", "10.webp"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -29,12 +29,12 @@
             }
         },
         {
-            "cover": "/images/projects/Projetos–BrilloCoffee.png",
-            "grain": "/images/projects/Grains/Brillo-Blur.png",
+            "cover": "/images/projects/Projetos–BrilloCoffee.webp",
+            "grain": "/images/projects/Grains/Brillo-Blur.webp",
             "title": "Brillo Coffee",
             "slug": "brillo-caffee",
             "folder":"/images/projects/Brillo",
-            "images": ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png", "08.png", "09.png", "11.png", "12.png", "13.png", "14-1.png", "14.png", "15.png"],
+            "images": ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp", "06.webp", "07.webp", "08.webp", "09.webp", "11.webp", "12.webp", "13.webp", "14-1.webp", "14.webp", "15.webp"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -55,12 +55,12 @@
             }
         },
         {
-            "cover": "/images/projects/Horya/Capa.png",
-            "grain": "/images/projects/Grains/Horya-Blur.png",
+            "cover": "/images/projects/Horya/Capa.webp",
+            "grain": "/images/projects/Grains/Horya-Blur.webp",
             "title": "Horya",
             "slug": "horya",
             "folder":"/images/projects/Horya",
-            "images": ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"],
+            "images": ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp", "06.webp", "07.webp"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -81,12 +81,12 @@
             }
         },
         {
-            "cover": "/images/projects/Projetos – Ami+.png",
-            "grain": "/images/projects/Grains/Ami-Blur.png",
+            "cover": "/images/projects/Projetos – Ami+.webp",
+            "grain": "/images/projects/Grains/Ami-Blur.webp",
             "title": "Ami+",
             "slug": "ami+",
             "folder":"/images/projects/Ami+",
-            "images": ["01.png", "02.png", "03.png", "04.png", "05.jpg", "06.png"],
+            "images": ["01.webp", "02.webp", "03.webp", "04.webp", "05.jpg", "06.webp"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -107,12 +107,12 @@
             }
         },
         {
-            "cover": "/images/projects/ion-s/Capa.png",
-            "grain": "/images/projects/Grains/Ions-Blur.png",
+            "cover": "/images/projects/ion-s/Capa.webp",
+            "grain": "/images/projects/Grains/Ions-Blur.webp",
             "title": "ÍON-S",
             "slug": "ion-s",
             "folder":"/images/projects/ion-s",
-            "images": ["01.png", "02.png", "03.png", "03(1).mp4", "04.png", "05.png", "06.png", "07.png", "08.png"],
+            "images": ["01.webp", "02.webp", "03.webp", "03(1).mp4", "04.webp", "05.webp", "06.webp", "07.webp", "08.webp"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -133,12 +133,12 @@
             }
         },
         {
-            "cover": "/images/projects/Aquino/Capa.png",
-            "grain": "/images/projects/Grains/Aquino-Blur.png",
+            "cover": "/images/projects/Aquino/Capa.webp",
+            "grain": "/images/projects/Grains/Aquino-Blur.webp",
             "title": "Aquino",
             "slug": "aquino",
             "folder":"/images/projects/Aquino",
-            "images": ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png", "08.png", "09.png"],
+            "images": ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp", "06.webp", "07.webp", "08.webp", "09.webp"],
             "lang": {
                 "PT": {
                     "tags": [
@@ -159,12 +159,12 @@
             }
         },
         {
-            "cover": "/images/projects/jts/Capa.png",
-            "grain": "/images/projects/Grains/Jts-Blur.png",
+            "cover": "/images/projects/jts/Capa.webp",
+            "grain": "/images/projects/Grains/Jts-Blur.webp",
             "title": "JTS Build & Design",
             "slug": "jts-build-&-design",
             "folder":"/images/projects/jts",
-            "images": ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"],
+            "images": ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp", "06.webp", "07.webp"],
             "lang": {
                 "PT": {
                     "tags": [

@@ -264,7 +264,7 @@ h3,
 h4,
 h5 {
   font-family: var(--ivy);
-  font-weight: 300;
+  font-weight: 200;
   margin: 0;
 i{
   font-weight: 200;

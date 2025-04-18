@@ -8,8 +8,8 @@
         <div class="langs" v-html="$t('about.section1.heading1')"></div>
         <a class="destaque-link links" href="https://www.behance.net/luizabola" target="_blank">
           <div id="destaque">
-            <img src="/images/Be.png" alt="behance" />
-            <img src="/images/flag.png" alt="behance" />
+            <img src="/images/Be.webp" alt="behance" />
+            <img src="/images/flag.webp" alt="behance" />
             <div class="langs" v-html="$t('about.section1.sub1')"></div>
           </div>
         </a>
@@ -228,7 +228,7 @@ export default {
     h5 {
       line-height: 1.5em;
       span{
-          font-weight: 300 !important;
+          font-weight: 200 !important;
         }
     }
   }
