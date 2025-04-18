@@ -155,7 +155,7 @@ export default {
 
     h2 {
         font-family: var(--neue);
-        font-weight: 200 !important;
+        font-weight: 300 !important;
         max-width: 1000px !important;
         margin: 0 auto;
         transform:translatey(-20px);

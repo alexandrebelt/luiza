@@ -228,7 +228,7 @@ export default {
     h5 {
       line-height: 1.5em;
       span{
-          font-weight: 200 !important;
+          font-weight: 300 !important;
         }
     }
   }

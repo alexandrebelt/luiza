@@ -147,7 +147,7 @@ export default defineComponent({
       }
         p {
           font-family: var(--eb) !important;
-          font-weight: 200;
+          font-weight: 300;
           font-style: italic;
         }
       }
