@@ -205,7 +205,7 @@ export default {
         
         h4 {
           max-width: 300px !important;
-          font-size: 40px;
+          font-size: 39px;
         }
       }
     }
