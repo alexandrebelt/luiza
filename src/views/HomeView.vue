@@ -26,9 +26,9 @@
 
     </section>
 
-    <section id="see-more-works">
-      <router-link to="/portfolio">
-        <div class="langs links" :class="{ 'pt-see-more-works': $i18n.locale === 'PT' }"
+    <section id="see-more-works" :class="{ 'pt-see-more-works': $i18n.locale === 'PT' }">
+      <router-link to="/portfolio" >
+        <div class="langs links" 
           v-html="$t('home.section3.heading')"></div>
         <span class="underline-effect"></span>
       </router-link>
@@ -227,6 +227,12 @@ export default defineComponent({
       margin-top: 30px;
     }
   }
+  .pt-see-more-works{
+    a {
+      max-width: clamp(300px, 70vw, 550px) !important;
+      margin: 0 auto;
+    }
+  }
 
   @media (max-width:650px) {
 
@@ -236,7 +242,7 @@ export default defineComponent({
         font-size: 72px;
     max-width: 300px;
       }
-
+      
       p {
         max-width: 280px !important;
         font-size: 17px;
@@ -246,9 +252,10 @@ export default defineComponent({
 }
 
 .pt-see-more-works {
+  
   @media (max-width:650px) {
     h2 {
-      font-size: 42px !important;
+      //font-size: 42px !important;
     }
   }
 }
