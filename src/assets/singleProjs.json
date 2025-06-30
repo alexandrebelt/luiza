@@ -1,6 +1,32 @@
 {
     "projs": [
         {
+            "cover": "/images/projects/Noukai/01.webp",
+            "grain": "/images/projects/Grains/Noukai-Blur.webp",
+            "title": "Noukai",
+            "slug": "noukai",
+            "folder":"/images/projects/Noukai",
+            "images": ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp", "06.webp", "07.webp", "08.webp", "09.webp", "10.webp", "11.webp", "12.webp"],
+            "lang": {
+                "PT": {
+                    "tags": [
+                        "Branding",
+                        "Identidade Visual",
+                        "Design de Embalagem"
+                    ],
+                    "description": "Em um mundo movido pela urgência e pelo excesso, Noukai surge como uma pausa — um convite para retornar à essência. Enraizada na disciplina do ofício e no movimento da natureza, a marca flui com intenção, transformando o cuidado com a pele em um ritual contemplativo. Cada produto se torna um gesto: suave, deliberado e profundamente sintonizado com os ritmos do mundo interior e exterior. Guiada pelo duplo significado de seu nome — Nou, que representa maestria, e Kai, que significa oceano — Noukai encarna a harmonia entre habilidade e delicadeza. Não se trata apenas de corrigir a pele, mas de navegar por ela, como um barco em águas calmas, sentindo cada corrente com atenção. A identidade da marca é um estudo de contrastes: terrena e oceânica, orgânica e precisa, enraizada e transcendente. A linguagem visual evoca essa dualidade por meio de linhas fluídas que sugerem correntes marítimas, silhuetas botânicas que falam de cura natural e texturas pinceladas que nos reconectam ao toque humano. Cada elemento existe não para impressionar, mas para convidar à atenção. Para desacelerar o olhar. O símbolo de Noukai é sutil, mas simbólico — um caminho dourado que traça movimento, presença e luz interior. Combinado a uma paleta de marrons profundos e azuis oceânicos, a marca encontra sua voz no silêncio: contemplativa, tátil e emocionalmente ressonante. Noukai não é um produto. É uma prática. Um retorno ao ritual. Uma celebração do que acontece quando design, natureza e emoção se movem como um só. Navegar para dentro é começar de novo. Isto é Noukai."
+                },
+                "EN": {
+                    "tags": [
+                        "Branding",
+                        "Brand Identity",
+                        "Packaging"
+                    ],
+                    "description": "In a world driven by urgency and excess, Noukai emerges as a pause — an invitation to return to essence. Rooted in the discipline of craft and the movement of nature, the brand flows with intention, transforming skincare into a contemplative ritual. Each product becomes a gesture: gentle, deliberate, and deeply attuned to the rhythms of inner and outer worlds. Guided by the dual meaning of its name — Nou for mastery, Kai for ocean — Noukai embodies harmony between skill and softness. It is not simply about correcting the skin, but about navigating it, like a boat across quiet waters, sensing each current with care. The brand’s identity is a study in contrasts: earthy and oceanic, organic and precise, grounded and transcendent. The visual language evokes this duality through flowing lines that suggest ocean currents, botanical silhouettes that speak of natural healing, and textural brushwork that reconnects us to human touch. Each element exists not to impress, but to invite attention. To slow the gaze. Noukai’s mark is subtle yet symbolic — a golden path that traces movement, presence, and inner light. Paired with a palette of deep browns and oceanic blues, the brand finds its voice in silence: contemplative, tactile, and emotionally resonant. Noukai is not a product. It is a practice. A return to ritual. A celebration of what happens when design, nature, and emotion move as one. To sail inward is to begin anew.This is Noukai."
+                }
+            }
+        },
+        {
             "cover": "/images/projects/Arcturo/Capa.webp",
             "grain": "/images/projects/Grains/Arcturo-Blur-2.webp",
             "title": "Arcturo",
